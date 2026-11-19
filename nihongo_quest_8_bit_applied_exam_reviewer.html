@@ -1,0 +1,2971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIHONGO QUEST 8-BIT | Applied Exam Reviewer (100 Items)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            vt: ['"VT323"', 'monospace'],
+          },
+          colors: {
+            indigo8: {
+              950: '#0d1021',
+              900: '#181e3b',
+              800: '#242d57',
+              700: '#35427d',
+            },
+            sakura: {
+              100: '#fff0f5',
+              200: '#ffd6e5',
+              300: '#ffadc9',
+              400: '#ff7aa8',
+              500: '#e84a82',
+            },
+            washi: {
+              50: '#fffef9',
+              100: '#fcf8ec',
+              200: '#f3ebd3',
+              300: '#dfd1ad',
+              400: '#b8a478',
+              800: '#423620',
+              900: '#261e10',
+            },
+            gold8: {
+              400: '#ffd56b',
+              500: '#f5b82e',
+              600: '#cc8e14',
+            },
+            jade8: {
+              400: '#5ce69c',
+              500: '#2eb872',
+              700: '#1a7a49',
+            },
+            crimson8: {
+              400: '#ff6b78',
+              500: '#e03646',
+              700: '#9e1c28',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      border-radius: 0px !important;
+      image-rendering: pixelated;
+    }
+
+    body {
+      background-color: #181e3b;
+      background-image:
+        linear-gradient(rgba(255, 173, 201, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 173, 201, 0.045) 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: #261e10;
+      font-family: 'VT323', monospace;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Authentic 8-Bit Stepped Pixel Frame */
+    .pixel-box {
+      background-color: #fcf8ec;
+      border: 4px solid #0d1021;
+      box-shadow:
+        inset -4px -4px 0px #dfd1ad,
+        inset 4px 4px 0px #fffef9,
+        6px 6px 0px #070912;
+    }
+
+    .pixel-box-indigo {
+      background-color: #242d57;
+      border: 4px solid #0d1021;
+      box-shadow:
+        inset -4px -4px 0px #141933,
+        inset 4px 4px 0px #3a4785,
+        6px 6px 0px #070912;
+    }
+
+    .pixel-panel-inner {
+      background-color: #f3ebd3;
+      border: 3px solid #423620;
+      box-shadow: inset 3px 3px 0px #dfd1ad;
+    }
+
+    /* Chunky Tactile Arcade Buttons */
+    .pixel-btn {
+      border: 3px solid #0d1021;
+      box-shadow:
+        inset -3px -3px 0px rgba(0, 0, 0, 0.28),
+        inset 3px 3px 0px rgba(255, 255, 255, 0.35),
+        4px 4px 0px #0d1021;
+      transition: transform 0.06s steps(2), box-shadow 0.06s steps(2);
+      cursor: pointer;
+    }
+
+    .pixel-btn:hover:not(:disabled) {
+      filter: brightness(1.06);
+    }
+
+    .pixel-btn:active:not(:disabled) {
+      transform: translate(3px, 3px);
+      box-shadow:
+        inset -2px -2px 0px rgba(0, 0, 0, 0.28),
+        inset 2px 2px 0px rgba(255, 255, 255, 0.35),
+        1px 1px 0px #0d1021;
+    }
+
+    .pixel-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* JRPG Command Menu Option Cards */
+    .rpg-choice {
+      border: 3px solid #423620;
+      background-color: #fffef9;
+      box-shadow: 4px 4px 0px #b8a478;
+      transition: transform 0.06s steps(2), background-color 0.06s steps(2);
+    }
+
+    .rpg-choice:hover {
+      background-color: #fff0f5;
+      border-color: #0d1021;
+      box-shadow: 4px 4px 0px #0d1021;
+    }
+
+    .rpg-choice .cursor-arrow {
+      opacity: 0;
+    }
+
+    .rpg-choice:hover .cursor-arrow,
+    .rpg-choice.is-selected .cursor-arrow {
+      opacity: 1;
+    }
+
+    @keyframes blinkPixel {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .blink-cursor {
+      animation: blinkPixel 0.9s infinite;
+    }
+
+    @keyframes pixelShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+    .animate-damage {
+      animation: pixelShake 0.32s steps(2);
+    }
+
+    @keyframes pixelFlash {
+      0% { background-color: #5ce69c; }
+      100% { background-color: #fcf8ec; }
+    }
+    .animate-heal {
+      animation: pixelFlash 0.38s steps(3);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #242d57;
+      border-left: 2px solid #0d1021;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ff7aa8;
+      border: 2px solid #0d1021;
+    }
+
+    input[type="checkbox"].pixel-check {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: #fffef9;
+      border: 3px solid #0d1021;
+      box-shadow: inset 2px 2px 0px #dfd1ad;
+      display: inline-grid;
+      place-content: center;
+      cursor: pointer;
+    }
+    input[type="checkbox"].pixel-check:checked {
+      background: #2eb872;
+    }
+    input[type="checkbox"].pixel-check:checked::before {
+      content: "✓";
+      color: #fff;
+      font-family: "Press Start 2P", monospace;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-sakura-400 selection:text-indigo8-950">
+
+  <!-- ==================== TOP RPG HUD / STATUS BAR ==================== -->
+  <header class="bg-indigo8-950 text-washi-100 border-b-4 border-sakura-400 sticky top-0 z-30 shadow-[0_4px_0_#000]">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+
+      <!-- Left: Custom 8-Bit Daruma & Torii Pixel Sprite + Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-indigo8-800 border-3 border-gold8-500 p-1 flex items-center justify-center shrink-0 shadow-[3px_3px_0_#000]">
+          <!-- 8-Bit Daruma Doll & Sakura Pixel SVG -->
+          <svg viewBox="0 0 16 16" class="w-9 h-9" shape-rendering="crispEdges">
+            <!-- Daruma Red Body -->
+            <rect x="4" y="2" width="8" height="1" fill="#e03646"/>
+            <rect x="3" y="3" width="10" height="2" fill="#e03646"/>
+            <rect x="2" y="5" width="12" height="7" fill="#e03646"/>
+            <rect x="3" y="12" width="10" height="2" fill="#e03646"/>
+            <rect x="4" y="14" width="8" height="1" fill="#9e1c28"/>
+            <!-- Daruma Cream Face -->
+            <rect x="4" y="4" width="8" height="5" fill="#fcf8ec"/>
+            <rect x="5" y="3" width="6" height="1" fill="#fcf8ec"/>
+            <!-- Eyebrows & Eyes -->
+            <rect x="5" y="4" width="2" height="1" fill="#0d1021"/>
+            <rect x="9" y="4" width="2" height="1" fill="#0d1021"/>
+            <rect x="5" y="6" width="2" height="2" fill="#0d1021"/>
+            <rect x="9" y="6" width="2" height="2" fill="#0d1021"/>
+            <rect x="5" y="6" width="1" height="1" fill="#ffffff"/>
+            <!-- Gold Belly Stripes -->
+            <rect x="5" y="10" width="6" height="1" fill="#f5b82e"/>
+            <rect x="6" y="12" width="4" height="1" fill="#f5b82e"/>
+            <!-- Sakura Pixel Accents -->
+            <rect x="1" y="2" width="1" height="1" fill="#ffadc9"/>
+            <rect x="14" y="3" width="1" height="1" fill="#ffadc9"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-pixel text-xs sm:text-sm md:text-base text-gold8-400 tracking-tight leading-snug drop-shadow-[2px_2px_0_#000]">
+              NIHONGO QUEST 8-BIT
+            </h1>
+            <span class="hidden md:inline-block px-2 py-0.5 bg-sakura-400 text-indigo8-950 font-pixel text-[9px] border-2 border-black">
+              APPLIED 100
+            </span>
+          </div>
+          <p class="font-vt text-lg sm:text-xl text-sakura-200 leading-none mt-0.5">
+            TIME &amp; DATES • SENTENCE COMPLETION • Q&amp;A RESPONSE DRILLS
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: RPG HUD Counters -->
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+
+        <!-- Boss Battle Countdown Timer -->
+        <div id="timerBadge" class="hidden items-center gap-2 px-3 py-1.5 bg-indigo8-800 border-2 border-crimson8-500 text-crimson8-400 font-pixel text-[10px] sm:text-xs shadow-[3px_3px_0_#000]">
+          <span>TIME</span>
+          <span id="timerText">60:00</span>
+        </div>
+
+        <!-- XP & Streak Status Pill -->
+        <div id="headerScoreBadge" class="hidden sm:flex items-center gap-3 px-3 py-1.5 bg-indigo8-800 border-2 border-gold8-500 text-xs shadow-[3px_3px_0_#000]">
+          <div class="flex items-center gap-1.5">
+            <span class="font-pixel text-[9px] text-gold8-400">XP:</span>
+            <span id="headerScoreVal" class="font-pixel text-[11px] text-jade8-400">0</span>
+            <span class="text-slate-400 font-pixel text-[9px]">/</span>
+            <span id="headerAnsweredVal" class="font-pixel text-[10px] text-washi-100">0</span>
+          </div>
+          <div class="h-4 w-0.5 bg-slate-600"></div>
+          <div class="flex items-center gap-1">
+            <span class="font-pixel text-[9px] text-sakura-300">COMBO:</span>
+            <span id="streakVal" class="font-pixel text-[11px] text-white">0x</span>
+          </div>
+        </div>
+
+        <!-- 8-Bit Sound Toggle -->
+        <button id="soundToggleBtn" type="button" title="Toggle 8-Bit Chiptune Sound Effects" class="pixel-btn px-2.5 py-2 bg-indigo8-700 text-gold8-400 font-pixel text-[10px] flex items-center gap-1.5">
+          <span id="soundIconText">SFX:ON</span>
+        </button>
+
+        <!-- Mobile Stage Map Trigger -->
+        <button id="togglePaletteBtn" type="button" class="lg:hidden pixel-btn px-2.5 py-2 bg-sakura-400 text-indigo8-950 font-pixel text-[10px]">
+          MAP
+        </button>
+
+        <!-- Main Title Screen / Setup Button -->
+        <button id="openSetupBtn" type="button" class="pixel-btn px-3 py-2 bg-washi-200 text-indigo8-950 font-pixel text-[10px]">
+          MENU
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN GAME VIEWPORT ==================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-6">
+
+    <!-- ==================== VIEW 1: START SCREEN / CATEGORY SELECT ==================== -->
+    <section id="setupView" class="max-w-4xl mx-auto">
+      <div class="pixel-box overflow-hidden">
+        <!-- Retro Title Banner -->
+        <div class="bg-indigo8-900 border-b-4 border-indigo8-950 p-6 sm:p-8 text-washi-100 relative">
+          <div class="inline-block px-3 py-1 bg-sakura-400 text-indigo8-950 font-pixel text-[9px] sm:text-[10px] border-2 border-black mb-4 shadow-[3px_3px_0_#000]">
+            ★ APPLIED EXAM EDITION • 100 MULTIPLE-CHOICE STAGES ★
+          </div>
+          <h2 class="font-pixel text-base sm:text-xl md:text-2xl text-gold8-400 leading-relaxed drop-shadow-[3px_3px_0_#000] mb-3">
+            NIHONGO APPLIED EXAM REVIEWER
+          </h2>
+          <p class="font-vt text-xl sm:text-2xl text-sakura-100 leading-snug max-w-3xl">
+            Practice actual exam-style problems strictly based on Pages 1–13: translating clock times &amp; calendar dates, completing Japanese sentences with exact particles &amp; conjugations, and choosing proper replies to Nihongo questions!
+          </p>
+        </div>
+
+        <div class="p-5 sm:p-8 space-y-7">
+          <!-- Step 1: Select Applied Category -->
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="font-pixel text-xs text-sakura-500">▶</span>
+              <label class="font-pixel text-xs sm:text-sm text-indigo8-950">
+                1. SELECT APPLIED EXAM CATEGORY
+              </label>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="scopeSelector">
+              <button type="button" data-scope="ALL" class="scope-btn pixel-btn text-left p-4 bg-gold8-400 text-indigo8-950 flex items-start justify-between gap-2 ring-4 ring-indigo8-950">
+                <div>
+                  <div class="font-pixel text-[11px] leading-snug">ALL 100 ITEMS (FULL)</div>
+                  <div class="font-vt text-xl mt-1 text-indigo8-900">Complete 3-Part Applied Semi-Final Mock Exam</div>
+                </div>
+                <span class="px-2.5 py-1 bg-indigo8-950 text-gold8-400 font-pixel text-[10px] shrink-0">100</span>
+              </button>
+
+              <button type="button" data-scope="CAT1" class="scope-btn pixel-btn text-left p-4 bg-washi-50 text-indigo8-950 flex items-start justify-between gap-2">
+                <div>
+                  <div class="font-pixel text-[11px] leading-snug">1. TRANSLATION OF TIME &amp; DATES</div>
+                  <div class="font-vt text-xl mt-1 text-washi-800">Gozen/Gogo, ~Ji, ~Fun/~Pun, Han, ~Gatsu &amp; ~Nichi</div>
+                </div>
+                <span class="px-2.5 py-1 bg-indigo8-800 text-washi-100 font-pixel text-[10px] shrink-0">25</span>
+              </button>
+
+              <button type="button" data-scope="CAT2" class="scope-btn pixel-btn text-left p-4 bg-washi-50 text-indigo8-950 flex items-start justify-between gap-2">
+                <div>
+                  <div class="font-pixel text-[11px] leading-snug">2. COMPLETION OF SENTENCES</div>
+                  <div class="font-vt text-xl mt-1 text-washi-800">Fill-in-the-Blank Particles, ~Masu Tenses &amp; Vocab</div>
+                </div>
+                <span class="px-2.5 py-1 bg-indigo8-800 text-washi-100 font-pixel text-[10px] shrink-0">35</span>
+              </button>
+
+              <button type="button" data-scope="CAT3" class="scope-btn pixel-btn text-left p-4 bg-washi-50 text-indigo8-950 flex items-start justify-between gap-2">
+                <div>
+                  <div class="font-pixel text-[11px] leading-snug">3. RESPONDING TO QUESTIONS</div>
+                  <div class="font-vt text-xl mt-1 text-washi-800">Select the Proper Japanese Reply to Every Question</div>
+                </div>
+                <span class="px-2.5 py-1 bg-indigo8-800 text-washi-100 font-pixel text-[10px] shrink-0">40</span>
+              </button>
+            </div>
+
+            <!-- Saved Inventory / Side Quests -->
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button type="button" data-scope="BOOKMARKED" class="scope-btn pixel-btn px-3.5 py-2.5 bg-sakura-200 text-indigo8-950 font-pixel text-[10px] flex items-center gap-2">
+                <span>★ BOOKMARKED (<span id="savedBookmarkCount">0</span>)</span>
+              </button>
+              <button type="button" data-scope="MISSED" class="scope-btn pixel-btn px-3.5 py-2.5 bg-rose-200 text-indigo8-950 font-pixel text-[10px] flex items-center gap-2">
+                <span>☠ MISSED BOSSES (<span id="savedMissedCount">0</span>)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 & 3: Game Mode & Modifiers -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-5 border-t-4 border-dashed border-washi-400">
+            <!-- Mode Switcher -->
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="font-pixel text-xs text-sakura-500">▶</span>
+                <label class="font-pixel text-xs sm:text-sm text-indigo8-950">
+                  2. BATTLE MODE
+                </label>
+              </div>
+              <div class="space-y-3">
+                <button type="button" data-mode="STUDY" class="mode-btn pixel-btn w-full text-left p-4 bg-jade8-400 text-indigo8-950 ring-4 ring-indigo8-950">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-pixel text-xs">STUDY MODE</span>
+                    <span class="px-2 py-0.5 bg-indigo8-950 text-jade8-400 font-pixel text-[8px]">INSTANT SENSEI</span>
+                  </div>
+                  <p class="font-vt text-xl mt-1.5 text-indigo8-950">
+                    Instant grammar &amp; vocabulary rule breakdown after every selection.
+                  </p>
+                </button>
+
+                <button type="button" data-mode="EXAM" class="mode-btn pixel-btn w-full text-left p-4 bg-washi-50 text-indigo8-950">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-pixel text-xs">TIMED EXAM MODE</span>
+                    <span class="px-2 py-0.5 bg-crimson8-500 text-white font-pixel text-[8px]">BOSS CLOCK</span>
+                  </div>
+                  <p class="font-vt text-xl mt-1.5 text-washi-800">
+                    Countdown timer active. Full score &amp; rank revealed upon completion.
+                  </p>
+                </button>
+              </div>
+            </div>
+
+            <!-- Options -->
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="font-pixel text-xs text-sakura-500">▶</span>
+                <label class="font-pixel text-xs sm:text-sm text-indigo8-950">
+                  3. GAME MODIFIERS
+                </label>
+              </div>
+              <div class="pixel-panel-inner p-4 space-y-4">
+                <label class="flex items-center justify-between cursor-pointer">
+                  <div>
+                    <div class="font-pixel text-[10px] text-indigo8-950">SHUFFLE QUESTIONS</div>
+                    <div class="font-vt text-lg text-washi-800">Randomize question order</div>
+                  </div>
+                  <input type="checkbox" id="shuffleQuestionsToggle" class="pixel-check" />
+                </label>
+
+                <label class="flex items-center justify-between cursor-pointer pt-3 border-t-2 border-washi-300">
+                  <div>
+                    <div class="font-pixel text-[10px] text-indigo8-950">RANDOMIZE CHOICES</div>
+                    <div class="font-vt text-lg text-washi-800">Default ON (OFF = balanced A/B/C/D)</div>
+                  </div>
+                  <input type="checkbox" id="shuffleOptionsToggle" class="pixel-check" checked />
+                </label>
+
+                <div id="timerConfigRow" class="pt-3 border-t-2 border-washi-300 opacity-50 pointer-events-none transition">
+                  <div class="flex items-center justify-between gap-2">
+                    <div>
+                      <div class="font-pixel text-[10px] text-indigo8-950">EXAM CLOCK</div>
+                      <div class="font-vt text-lg text-washi-800">Timed duration</div>
+                    </div>
+                    <select id="timerDurationSelect" class="border-3 border-indigo8-950 bg-washi-50 px-2.5 py-1.5 font-pixel text-[10px] text-indigo8-950">
+                      <option value="30">30 MIN</option>
+                      <option value="45">45 MIN</option>
+                      <option value="60" selected>60 MIN</option>
+                      <option value="90">90 MIN</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inline Alert Box -->
+          <div id="setupAlert" class="hidden p-4 bg-crimson8-500 text-white border-4 border-indigo8-950 font-pixel text-[10px] leading-relaxed shadow-[4px_4px_0_#000]"></div>
+
+          <!-- Press Start CTA -->
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="font-vt text-xl text-washi-800">
+              KEYS: <span class="px-1.5 py-0.5 bg-washi-200 border border-indigo8-950 font-bold">A-D / 1-4</span> to pick • <span class="px-1.5 py-0.5 bg-washi-200 border border-indigo8-950 font-bold">← / →</span> to navigate
+            </p>
+            <button id="startExamBtn" type="button" class="w-full sm:w-auto pixel-btn px-7 py-4 bg-jade8-500 text-indigo8-950 font-pixel text-xs sm:text-sm flex items-center justify-center gap-3">
+              <span>▶ PRESS START</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 2: ACTIVE JRPG BATTLE / QUIZ ARENA ==================== -->
+    <section id="quizView" class="hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Main JRPG Dialogue & Command Column (8 Cols) -->
+        <div class="lg:col-span-8 space-y-5">
+
+          <!-- Segmented Pixel Progress Bar -->
+          <div class="pixel-box-indigo p-3.5 sm:p-4 text-washi-100">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="currentScopeBadge" class="px-2.5 py-1 bg-gold8-500 text-indigo8-950 font-pixel text-[9px] border-2 border-black">
+                  ALL 100 ITEMS
+                </span>
+                <span id="currentModeBadge" class="px-2.5 py-1 bg-jade8-500 text-indigo8-950 font-pixel text-[9px] border-2 border-black">
+                  STUDY MODE
+                </span>
+              </div>
+              <div class="font-pixel text-[10px] sm:text-xs text-gold8-400">
+                STAGE <span id="qIndexDisplay">1</span> / <span id="qTotalDisplay">100</span>
+              </div>
+            </div>
+
+            <!-- Pixel HP/Progress Meter -->
+            <div class="w-full h-5 bg-indigo8-950 border-3 border-black p-0.5">
+              <div id="progressBarFill" class="h-full bg-sakura-400 transition-all duration-200" style="width: 1%; background-image: repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(0,0,0,0.22) 10px, rgba(0,0,0,0.22) 12px);"></div>
+            </div>
+          </div>
+
+          <!-- JRPG Dialogue Window Card -->
+          <div id="questionCardBox" class="pixel-box p-5 sm:p-7 relative">
+            <!-- Decorative Corner Pixels -->
+            <div class="w-2.5 h-2.5 bg-sakura-400 border border-black absolute top-2 left-2"></div>
+            <div class="w-2.5 h-2.5 bg-sakura-400 border border-black absolute top-2 right-2"></div>
+            <div class="w-2.5 h-2.5 bg-sakura-400 border border-black absolute bottom-2 left-2"></div>
+            <div class="w-2.5 h-2.5 bg-sakura-400 border border-black absolute bottom-2 right-2"></div>
+
+            <!-- Stage Header & Bookmark Toggle -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b-4 border-washi-300">
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="qTopicTag" class="px-2.5 py-1 bg-indigo8-900 text-gold8-400 font-pixel text-[9px] border-2 border-black">
+                  CATEGORY 1
+                </span>
+                <span id="qCategoryTag" class="px-2.5 py-1 bg-sakura-200 text-indigo8-950 font-vt text-lg font-bold border-2 border-sakura-400 leading-none">
+                  Time &amp; Dates
+                </span>
+                <span id="qOrigIdTag" class="font-pixel text-[9px] text-washi-800">
+                  #001
+                </span>
+              </div>
+
+              <!-- Bookmark Star Button -->
+              <button id="bookmarkBtn" type="button" class="pixel-btn px-3 py-1.5 bg-washi-200 text-indigo8-950 font-pixel text-[9px] flex items-center gap-1.5">
+                <span id="bookmarkStarIcon">☆</span>
+                <span id="bookmarkBtnText">BOOKMARK</span>
+              </button>
+            </div>
+
+            <!-- Question Prompt with Optional Context Sub-box & Blinking Pixel Cursor -->
+            <div class="mb-6">
+              <div id="questionPromptBadge" class="inline-block font-pixel text-[9px] text-indigo8-700 mb-2">
+                TRANSLATE / COMPLETE / RESPOND:
+              </div>
+              <h3 id="questionText" class="font-vt text-2xl sm:text-3xl text-indigo8-950 leading-snug tracking-normal whitespace-pre-line">
+                Loading Nihongo stage...
+              </h3>
+              <span class="inline-block font-pixel text-xs text-sakura-500 blink-cursor mt-1">▼</span>
+            </div>
+
+            <!-- 4 Multiple Choice Command Slots -->
+            <div id="optionsContainer" class="space-y-3">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Sensei Lore Scroll / Study Explanation Box -->
+            <div id="explanationBox" class="hidden mt-6 p-4 sm:p-5 border-4 border-indigo8-950 shadow-[4px_4px_0_#0f1224]">
+              <div class="flex items-start gap-3">
+                <div id="explanationIcon" class="font-pixel text-sm shrink-0 mt-0.5">★</div>
+                <div class="flex-1">
+                  <h4 id="explanationHeading" class="font-pixel text-[10px] sm:text-xs leading-relaxed mb-2">SENSEI NOTE</h4>
+                  <div id="explanationText" class="font-vt text-xl sm:text-2xl leading-snug"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Arcade Action Controls -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+            <button id="prevBtn" type="button" class="pixel-btn px-4 py-3 bg-washi-100 text-indigo8-950 font-pixel text-[10px] sm:text-xs flex items-center gap-2">
+              <span>◀ PREV</span>
+            </button>
+
+            <div class="flex items-center gap-3">
+              <button id="finishExamBtn" type="button" class="pixel-btn px-4 py-3 bg-gold8-500 text-indigo8-950 font-pixel text-[10px] sm:text-xs">
+                ★ FINISH QUEST
+              </button>
+
+              <button id="nextBtn" type="button" class="pixel-btn px-5 py-3 bg-jade8-500 text-indigo8-950 font-pixel text-[10px] sm:text-xs flex items-center gap-2">
+                <span>NEXT ▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Sidebar: Stage Map / Question Grid Drawer (4 Cols) -->
+        <aside id="paletteSidebar" class="hidden lg:block lg:col-span-4 pixel-box p-4 sm:p-5 sticky top-24">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b-4 border-washi-300">
+            <div>
+              <h4 class="font-pixel text-xs text-indigo8-950">STAGE MAP</h4>
+              <p class="font-vt text-lg text-washi-800 leading-none mt-1">Jump to any question</p>
+            </div>
+            <button id="closePaletteMobileBtn" type="button" class="lg:hidden pixel-btn px-2.5 py-1 bg-crimson8-500 text-white font-pixel text-[10px]">
+              X
+            </button>
+          </div>
+
+          <!-- Pixel Tile Legend -->
+          <div class="grid grid-cols-2 gap-2 font-vt text-base font-bold text-indigo8-950 mb-3 pixel-panel-inner p-2.5">
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 bg-gold8-400 border-2 border-black inline-block"></span> ACTIVE</div>
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 bg-jade8-500 border-2 border-black inline-block"></span> CLEARED</div>
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 bg-crimson8-500 border-2 border-black inline-block"></span> MISSED</div>
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 bg-sakura-300 border-2 border-sakura-500 inline-block"></span> ★ STARRED</div>
+          </div>
+
+          <!-- Grid of Stage Tiles -->
+          <div id="paletteGrid" class="grid grid-cols-6 sm:grid-cols-7 lg:grid-cols-6 gap-1.5 max-h-[50vh] overflow-y-auto pr-1">
+            <!-- Tiles generated via JS -->
+          </div>
+
+          <!-- Map Footer Telemetry -->
+          <div class="mt-4 pt-3 border-t-4 border-washi-300 flex items-center justify-between font-pixel text-[9px] text-indigo8-950">
+            <span>DONE: <strong id="paletteAnsweredCount">0</strong></span>
+            <span class="text-sakura-500">★: <strong id="paletteFlaggedCount">0</strong></span>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3: STAGE CLEAR / VICTORY REPORT ==================== -->
+    <section id="resultsView" class="hidden max-w-5xl mx-auto space-y-6">
+      <!-- Victory Hero Banner -->
+      <div class="pixel-box overflow-hidden">
+        <div class="bg-indigo8-900 border-b-4 border-indigo8-950 p-6 sm:p-8 text-washi-100 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <div class="inline-block px-3 py-1 bg-jade8-500 text-indigo8-950 font-pixel text-[10px] border-2 border-black mb-3">
+              ★ OMEDETOU! STAGE CLEAR! ★
+            </div>
+            <h2 class="font-pixel text-lg sm:text-2xl text-gold8-400 leading-relaxed drop-shadow-[3px_3px_0_#000]">
+              APPLIED EXAM VICTORY REPORT
+            </h2>
+            <p id="resultSubtitle" class="font-vt text-xl sm:text-2xl text-sakura-100 mt-1">
+              Check your category accuracy breakdown and review every sensei explanation below.
+            </p>
+          </div>
+
+          <!-- Rank & Score Box -->
+          <div class="bg-indigo8-950 border-4 border-gold8-500 p-4 sm:p-5 flex items-center gap-5 shrink-0 shadow-[4px_4px_0_#000]">
+            <div class="text-center">
+              <div id="finalScoreFraction" class="font-pixel text-base sm:text-xl text-gold8-400">0/100</div>
+              <div class="font-pixel text-[8px] text-washi-300 mt-1.5">TOTAL SCORE</div>
+            </div>
+            <div class="h-12 w-1 bg-indigo8-700"></div>
+            <div class="text-center">
+              <div id="finalPercentage" class="font-pixel text-base sm:text-xl text-jade8-400">0%</div>
+              <div id="finalRemark" class="font-pixel text-[8px] text-sakura-300 mt-1.5">RANK</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Breakdown Bars -->
+        <div class="p-6 sm:p-8">
+          <h3 class="font-pixel text-xs text-indigo8-950 mb-4">▶ APPLIED CATEGORY ACCURACY</h3>
+          <div id="topicBreakdownGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-5 border-t-4 border-washi-300">
+            <div class="flex flex-wrap gap-3">
+              <button id="retryAllBtn" type="button" class="pixel-btn px-4 py-3 bg-jade8-500 text-indigo8-950 font-pixel text-[10px]">
+                ↻ RESTART QUEST
+              </button>
+              <button id="practiceMissedNowBtn" type="button" class="pixel-btn px-4 py-3 bg-crimson8-500 text-white font-pixel text-[10px]">
+                ☠ REVIEW MISSED ITEMS
+              </button>
+              <button id="backToLobbyBtn" type="button" class="pixel-btn px-4 py-3 bg-washi-200 text-indigo8-950 font-pixel text-[10px]">
+                ◀ CATEGORY MENU
+              </button>
+            </div>
+
+            <!-- Filter Answer Key -->
+            <div class="flex items-center gap-2">
+              <span class="font-pixel text-[9px] text-washi-800">FILTER:</span>
+              <button type="button" data-revfilter="ALL" class="rev-filter-btn pixel-btn px-2.5 py-1.5 bg-gold8-400 text-indigo8-950 font-pixel text-[9px]">ALL</button>
+              <button type="button" data-revfilter="INCORRECT" class="rev-filter-btn pixel-btn px-2.5 py-1.5 bg-washi-100 text-indigo8-950 font-pixel text-[9px]">MISSED</button>
+              <button type="button" data-revfilter="CORRECT" class="rev-filter-btn pixel-btn px-2.5 py-1.5 bg-washi-100 text-indigo8-950 font-pixel text-[9px]">CLEARED</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Sensei Answer Key List -->
+      <div id="reviewListContainer" class="space-y-4">
+        <!-- Populated dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Retro Footer -->
+  <footer class="bg-indigo8-950 border-t-4 border-indigo8-800 py-4 px-4 text-center font-vt text-lg text-sakura-200 mt-10">
+    NIHONGO QUEST 8-BIT • APPLIED EXAM REVIEWER (100 ITEMS) • <span class="text-gold8-400">SEMI-FINAL MODULE I (PAGES 1–13)</span>
+  </footer>
+
+  <!-- Custom Retro Confirm Modal -->
+  <div id="confirmModal" class="hidden fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4">
+    <div class="pixel-box max-w-md w-full p-6">
+      <h3 id="modalTitle" class="font-pixel text-sm text-indigo8-950 leading-relaxed mb-3">FINISH THIS QUEST?</h3>
+      <p id="modalBody" class="font-vt text-xl text-washi-900 leading-snug mb-6">
+        Are you ready to submit and view your rank?
+      </p>
+      <div class="flex items-center justify-end gap-3">
+        <button id="modalCancelBtn" type="button" class="pixel-btn px-4 py-2.5 bg-washi-200 text-indigo8-950 font-pixel text-[10px]">
+          RESUME
+        </button>
+        <button id="modalConfirmBtn" type="button" class="pixel-btn px-4 py-2.5 bg-jade8-500 text-indigo8-950 font-pixel text-[10px]">
+          SUBMIT!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 8-BIT RETRO WEB AUDIO SYNTHESIZER (Zero External Sound URLs)
+    // =========================================================================
+    let sfxEnabled = true;
+    let audioCtx = null;
+
+    function playTone(freq, type = 'square', duration = 0.08, delay = 0) {
+      if (!sfxEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+
+        gain.gain.setValueAtTime(0.07, audioCtx.currentTime + delay);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(audioCtx.currentTime + delay);
+        osc.stop(audioCtx.currentTime + delay + duration);
+      } catch (e) {
+        // Ignore if browser blocks audio context prior to user gesture
+      }
+    }
+
+    function playSfx(kind) {
+      if (!sfxEnabled) return;
+      if (kind === 'blip') {
+        playTone(540, 'square', 0.05, 0);
+      } else if (kind === 'correct') {
+        playTone(659.25, 'square', 0.08, 0);    // E5
+        playTone(987.77, 'square', 0.14, 0.08); // B5
+      } else if (kind === 'wrong') {
+        playTone(220.00, 'sawtooth', 0.11, 0);
+        playTone(155.56, 'sawtooth', 0.18, 0.10);
+      } else if (kind === 'start') {
+        playTone(440, 'square', 0.07, 0);
+        playTone(554.37, 'square', 0.07, 0.07);
+        playTone(659.25, 'square', 0.07, 0.14);
+        playTone(880, 'square', 0.18, 0.21);
+      } else if (kind === 'victory') {
+        playTone(523.25, 'square', 0.09, 0);
+        playTone(659.25, 'square', 0.09, 0.09);
+        playTone(783.99, 'square', 0.09, 0.18);
+        playTone(1046.50, 'square', 0.28, 0.27);
+      }
+    }
+
+    document.getElementById('soundToggleBtn').addEventListener('click', () => {
+      sfxEnabled = !sfxEnabled;
+      document.getElementById('soundIconText').textContent = sfxEnabled ? 'SFX:ON' : 'SFX:OFF';
+      if (sfxEnabled) playSfx('blip');
+    });
+
+    // =========================================================================
+    // 100 APPLIED MULTIPLE-CHOICE ITEMS (Explicitly Balanced A=25, B=25, C=25, D=25)
+    // =========================================================================
+    const QUESTION_BANK = [
+      // =======================================================================
+      // CATEGORY 1: TRANSLATION OF TIME & DATES (25 ITEMS: #1–#25)
+      // Balanced ans distribution: 7 A(0), 6 B(1), 6 C(2), 6 D(3)
+      // =======================================================================
+      {
+        id: 1,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Clock Time (EN → JP)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 1:00 A.M.",
+        options: ["gogo ichiji", "ichiji gozen", "gozen ichiji", "gozen ippun"],
+        ans: 2,
+        explanation: "Page 1 Rule: 'GOZEN' (A.M.) is placed BEFORE the time, and '~JI' is added after the hour number -> gozen ichiji."
+      },
+      {
+        id: 2,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Clock Time (EN → JP)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 10:00 P.M.",
+        options: ["gogo juuji", "gozen juuji", "juuji gogo", "gogo juuniji"],
+        ans: 0,
+        explanation: "Page 1 Example: 'GOGO' (P.M.) goes before the number, and 10:00 is 'juuji' -> gogo juuji."
+      },
+      {
+        id: 3,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Hour Readings",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 4:00 A.M.",
+        options: ["gozen yonji", "gozen shiji", "gogo yoji", "gozen yoji"],
+        ans: 3,
+        explanation: "Page 1 Special Reading: 4 o'clock is read as 'yoji' (not yonji), preceded by 'gozen' for A.M. -> gozen yoji."
+      },
+      {
+        id: 4,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Hour + Minutes",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 7:15 P.M.",
+        options: [
+          "gogo nanaji juugofun",
+          "gogo shichiji juugofun",
+          "gozen shichiji juugopun",
+          "gogo shichiji han"
+        ],
+        ans: 1,
+        explanation: "Page 1 & 2: 7:00 uses special reading 'shichiji', and 15 ends in 5 so it takes '~fun' ('juugofun') -> gogo shichiji juugofun."
+      },
+      {
+        id: 5,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Hour + Half Hour",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 9:30 P.M.",
+        options: [
+          "gogo kyuji han",
+          "gozen kuji han",
+          "gogo kuji han",
+          "gogo kuji sanjuppun"
+        ],
+        ans: 2,
+        explanation: "Page 1 & 2: 9:00 uses special reading 'kuji', and 30 minutes / half an hour is 'han' -> gogo kuji han."
+      },
+      {
+        id: 6,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Minute Rule (~PUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 1:01 A.M.",
+        options: [
+          "gozen ichiji ippun",
+          "gozen ichiji ichifun",
+          "gozen ichiji ichipun",
+          "gogo ichiji ippun"
+        ],
+        ans: 0,
+        explanation: "Page 1 Example: 1 minute is a special ~PUN reading ('ippun') -> gozen ichiji ippun."
+      },
+      {
+        id: 7,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Minute Rule (~FUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 1:02 A.M.",
+        options: [
+          "gozen ichiji nipun",
+          "gogo ichiji nifun",
+          "gozen niji ippun",
+          "gozen ichiji nifun"
+        ],
+        ans: 3,
+        explanation: "Page 1 Example: Minutes ending in 2, 5, 7, or 9 use '~FUN' -> gozen ichiji nifun."
+      },
+      {
+        id: 8,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Minute Rule (~PUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 1:13 P.M.",
+        options: [
+          "gogo ichiji juusanfun",
+          "gogo ichiji juusanpun",
+          "gozen ichiji juusanpun",
+          "gogo sanji juuppun"
+        ],
+        ans: 1,
+        explanation: "Page 1 Example: Minutes ending in 1, 3, 4, 6, 8, or 10 use '~PUN' (juusanpun, read as juusampun) -> gogo ichiji juusanpun."
+      },
+      {
+        id: 9,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Minute Rule (~PUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 1:20 A.M.",
+        options: [
+          "gozen ichiji nijuufun",
+          "gogo ichiji nijuppun",
+          "gozen ichiji nijuppun",
+          "gozen niji juppun"
+        ],
+        ans: 2,
+        explanation: "Page 1 Example: 20 ends in 10 ('juppun'), so 1:20 A.M. is 'gozen ichiji nijuppun'."
+      },
+      {
+        id: 10,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Minute (~PUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 6:06 A.M.",
+        options: [
+          "gozen rokuji roppun",
+          "gozen rokuji rokufun",
+          "gozen roppun rokuji",
+          "gogo rokuji roppun"
+        ],
+        ans: 0,
+        explanation: "Page 1 Table: 6 o'clock is 'rokuji' and 6 minutes is 'roppun' -> gozen rokuji roppun."
+      },
+      {
+        id: 11,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Minute (~PUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 8:08 P.M.",
+        options: [
+          "gogo hachiji hachifun",
+          "gozen hachiji happun",
+          "gogo happun hachiji",
+          "gogo hachiji happun"
+        ],
+        ans: 3,
+        explanation: "Page 1 Table: 8:00 is 'hachiji' and 8 minutes is 'happun' -> gogo hachiji happun."
+      },
+      {
+        id: 12,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Minute Rule (~FUN vs ~PUN)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: 3:04 P.M.",
+        options: [
+          "gogo sanji yonfun",
+          "gogo sanji yonpun",
+          "gogo yoji sanpun",
+          "gozen sanji yonpun"
+        ],
+        ans: 1,
+        explanation: "Page 1 Table: 3:00 is 'sanji' and 4 minutes is 'yonpun' (read as YOMPUN) -> gogo sanji yonpun."
+      },
+      {
+        id: 13,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Clock Time (JP → EN)",
+        promptBadge: "TRANSLATE INTO ENGLISH:",
+        q: "Translate: gozen juuichiji yonjuukyufun",
+        options: [
+          "11:49 P.M.",
+          "1:49 A.M.",
+          "11:49 A.M.",
+          "12:49 A.M."
+        ],
+        ans: 2,
+        explanation: "'gozen' = A.M., 'juuichiji' = 11:00, 'yonjuukyufun' = 49 minutes -> 11:49 A.M."
+      },
+      {
+        id: 14,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Clock Time (JP → EN)",
+        promptBadge: "TRANSLATE INTO ENGLISH:",
+        q: "Translate: gogo juuniji nanafun",
+        options: [
+          "12:07 P.M.",
+          "12:07 A.M.",
+          "2:07 P.M.",
+          "12:17 P.M."
+        ],
+        ans: 0,
+        explanation: "'gogo' = P.M., 'juuniji' = 12:00, 'nanafun' = 7 minutes (7 ends in 7 -> ~fun) -> 12:07 P.M."
+      },
+      {
+        id: 15,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Month + Special Day",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: January 1st",
+        options: [
+          "Ichigatsu ichinichi",
+          "Shigatsu tsuitachi",
+          "Ichigatsu futsuka",
+          "Ichigatsu tsuitachi"
+        ],
+        ans: 3,
+        explanation: "Page 7 Example: January is 'Ichigatsu' and the 1st day of the month is 'tsuitachi' -> Ichigatsu tsuitachi."
+      },
+      {
+        id: 16,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Regular ~NICHI Day",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: January 11th",
+        options: [
+          "Ichigatsu tsuitachi",
+          "Ichigatsu juuichinichi",
+          "Ichigatsu juuichiyokka",
+          "Juuichigatsu ichinichi"
+        ],
+        ans: 1,
+        explanation: "Page 7 Example: 11th day uses number + ~nichi ('juuichinichi') -> Ichigatsu juuichinichi."
+      },
+      {
+        id: 17,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Month (April)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: April 4th",
+        options: [
+          "Yongatsu yonnichi",
+          "Shigatsu yonnichi",
+          "Shigatsu yokka",
+          "Shichigatsu yokka"
+        ],
+        ans: 2,
+        explanation: "Page 7: April has the special reading 'Shigatsu' (not yongatsu), and the 4th day is 'yokka' -> Shigatsu yokka."
+      },
+      {
+        id: 18,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Month (July)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: July 7th",
+        options: [
+          "Shichigatsu nanoka",
+          "Nanagatsu nananichi",
+          "Shichigatsu youka",
+          "Shigatsu nanoka"
+        ],
+        ans: 0,
+        explanation: "Page 7: July has the special reading 'Shichigatsu', and the 7th day is 'nanoka' -> Shichigatsu nanoka."
+      },
+      {
+        id: 19,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Month (September)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: September 9th",
+        options: [
+          "Kyuugatsu kyuunichi",
+          "Kugatsu youka",
+          "Kugatsu tooka",
+          "Kugatsu kokonoka"
+        ],
+        ans: 3,
+        explanation: "Page 7: September has the special reading 'Kugatsu', and the 9th day is 'kokonoka' -> Kugatsu kokonoka."
+      },
+      {
+        id: 20,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Day (20th)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: February 20th",
+        options: [
+          "Nigatsu nijuunichi",
+          "Nigatsu hatsuka",
+          "Nigatsu futsuka",
+          "Nigatsu nijuuyokka"
+        ],
+        ans: 1,
+        explanation: "Page 7 Table: February is 'Nigatsu', and the 20th day is the special reading 'hatsuka' -> Nigatsu hatsuka."
+      },
+      {
+        id: 21,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Day (14th)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: October 14th",
+        options: [
+          "Juugatsu juuyonnichi",
+          "Juugatsu yokka",
+          "Juugatsu juuyokka",
+          "Juushigatsu juuyokka"
+        ],
+        ans: 2,
+        explanation: "Page 7 & 8 Example: October is 'Juugatsu' and the 14th day is 'juuyokka' -> Juugatsu juuyokka."
+      },
+      {
+        id: 22,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Special Day (24th)",
+        promptBadge: "TRANSLATE INTO JAPANESE:",
+        q: "Translate: December 24th",
+        options: [
+          "Juunigatsu nijuuyokka",
+          "Juunigatsu nijuuyonnichi",
+          "Juunigatsu hatsuka",
+          "Juunigatsu juuyokka"
+        ],
+        ans: 0,
+        explanation: "Page 7 Table: December is 'Juunigatsu' and the 24th day is 'nijuuyokka' -> Juunigatsu nijuuyokka."
+      },
+      {
+        id: 23,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Date Translation (JP → EN)",
+        promptBadge: "TRANSLATE INTO ENGLISH:",
+        q: "Translate: Sangatsu mikka",
+        options: ["March 2nd", "May 3rd", "March 5th", "March 3rd"],
+        ans: 3,
+        explanation: "'Sangatsu' = March (3rd month), and 'mikka' = 3rd day of the month -> March 3rd."
+      },
+      {
+        id: 24,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Date Translation (JP → EN)",
+        promptBadge: "TRANSLATE INTO ENGLISH:",
+        q: "Translate: Hachigatsu youka",
+        options: ["August 4th", "August 8th", "August 7th", "August 10th"],
+        ans: 1,
+        explanation: "'Hachigatsu' = August (8th month), and 'youka' = 8th day of the month -> August 8th."
+      },
+      {
+        id: 25,
+        catCode: "CAT1",
+        catLabel: "1. TRANSLATION OF TIME & DATES",
+        subTag: "Date Translation (JP → EN)",
+        promptBadge: "TRANSLATE INTO ENGLISH:",
+        q: "Translate: Gogatsu muika",
+        options: ["May 5th", "June 5th", "May 6th", "May 10th"],
+        ans: 2,
+        explanation: "'Gogatsu' = May (5th month), and 'muika' = 6th day of the month -> May 6th."
+      },
+
+      // =======================================================================
+      // CATEGORY 2: COMPLETION OF SENTENCES (35 ITEMS: #26–#60)
+      // Balanced ans distribution: 9 A(0), 9 B(1), 8 C(2), 9 D(3)
+      // =======================================================================
+      {
+        id: 26,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Interrogative NANJI",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Ima, ______ desu ka.\n(Clue: What time is it now?)",
+        options: ["nanji", "nanyoubi", "nangatsu", "nanban"],
+        ans: 0,
+        explanation: "Page 2: To ask for the time, the interrogative word 'NANJI' (what time) is used."
+      },
+      {
+        id: 27,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Interrogative NANYOUBI",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kyou wa ______ desu ka.\n(Clue: What day of the week is it today?)",
+        options: ["nanji", "nannichi", "itsu", "nanyoubi"],
+        ans: 3,
+        explanation: "Page 2: To ask what day of the week it is, the interrogative word 'NANYOUBI' is used."
+      },
+      {
+        id: 28,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Particle NI after Specific Time",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Watashi wa gozen goji ______ okimasu.\n(Clue: I wake up at 5 a.m.)",
+        options: ["wa", "ni", "kara", "to"],
+        ans: 1,
+        explanation: "Page 5 Rule: After 'nanji' and after the specific time that answers 'nanji', the particle 'NI' is used."
+      },
+      {
+        id: 29,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Particle KA (Question Marker)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Mainichi, Yamada san wa hatarakimasu ______.\n(Clue: Does Ms. Yamada work everyday?)",
+        options: ["wa", "ni", "ka", "ga"],
+        ans: 2,
+        explanation: "Page 5 Rule: When added with the particle 'KA' at the end, the declarative pattern becomes a Yes/No question."
+      },
+      {
+        id: 30,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Present/Future Negative (~MASEN)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Yamada san wa ashita ______.\n(Clue: Ms. Yamada will not work tomorrow.)",
+        options: [
+          "hatarakimasen",
+          "hatarakimashita",
+          "hatarakimasendeshita",
+          "hatarakimasu"
+        ],
+        ans: 0,
+        explanation: "Page 4 Rule: Present and future tense share the same form; drop ~MASU and add ~MASEN for present/future negative."
+      },
+      {
+        id: 31,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Past Positive (~MASHITA)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kinou, Yamada san wa ______.\n(Clue: Yesterday, Ms. Yamada worked.)",
+        options: [
+          "hatarakimasu",
+          "hatarakimasen",
+          "hatarakimasendeshita",
+          "hatarakimashita"
+        ],
+        ans: 3,
+        explanation: "Page 4 Rule: With 'Kinou' (yesterday) and positive action, drop ~MASU and add ~MASHITA -> hatarakimashita."
+      },
+      {
+        id: 32,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Past Negative (~MASENDESHITA)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kinou, Yamada san wa ______.\n(Clue: Yesterday, Ms. Yamada did not work.)",
+        options: [
+          "hatarakimasen",
+          "hatarakimasendeshita",
+          "hatarakimashita",
+          "hataraki ja arimasen"
+        ],
+        ans: 1,
+        explanation: "Page 4 Rule: Past-negative form drops ~MASU and adds ~MASENDESHITA -> hatarakimasendeshita."
+      },
+      {
+        id: 33,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Copula DESU (Past Positive)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kinou wa Nichiyoubi ______.\n(Clue: Yesterday was Sunday.)",
+        options: ["desu", "ja arimasen", "deshita", "ja arimasen deshita"],
+        ans: 2,
+        explanation: "Page 4 & 8: 'Deshita' is the past-positive form of DESU, equivalent to 'was' or 'were'."
+      },
+      {
+        id: 34,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Copula DESU (Present/Future Negative)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Ashita wa yasumi ______.\n(Clue: Tomorrow is not a holiday/rest day.)",
+        options: ["ja arimasen", "deshita", "ja arimasen deshita", "masen"],
+        ans: 0,
+        explanation: "Page 4 Table: For the copula DESU, Present/Future Negative is 'ja arimasen'."
+      },
+      {
+        id: 35,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Copula DESU (Past Negative)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Ototoi wa Doyoubi ______.\n(Clue: The day before yesterday was not Saturday.)",
+        options: [
+          "deshita",
+          "ja arimasen",
+          "masendeshita",
+          "ja arimasen deshita"
+        ],
+        ans: 3,
+        explanation: "Page 4 Table: Past Negative of the copula DESU is 'ja arimasen deshita'."
+      },
+      {
+        id: 36,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Particles KARA and MADE",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Watashi wa gogo shichiji ______ gogo kuji ______ benkyoushimasu.\n(Clue: I study from 7 P.M. until 9 P.M.)",
+        options: [
+          "made / kara",
+          "kara / made",
+          "ni / to",
+          "wa / ka"
+        ],
+        ans: 1,
+        explanation: "Page 5 Example: '~kara' (from) follows the starting time and '~made' (up to/until) follows the ending time."
+      },
+      {
+        id: 37,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Standalone Particle KARA",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Konban, watashi wa gogo hachiji ______ benkyoushimasu.\n(Clue: Tonight, I will study from 8 p.m.)",
+        options: ["ni", "made", "kara", "to"],
+        ans: 2,
+        explanation: "Page 6 Rule & Example: KARA and MADE do not always go together; 'kara' alone means 'from 8 p.m.'."
+      },
+      {
+        id: 38,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Particle TO (Noun Connector)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Yamada san no yasumi wa Kayoubi ______ Suiyoubi desu.\n(Clue: Ms. Yamada's rest days are Tuesday and Wednesday.)",
+        options: ["to", "soshite", "ga", "kara"],
+        ans: 0,
+        explanation: "Page 6 Example: The particle 'TO' is equivalent to 'and' and connects nouns (Kayoubi to Suiyoubi)."
+      },
+      {
+        id: 39,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Conjunction SOSHITE",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Watashi wa benkyoushimasu. ______ nemasu.\n(Clue: I study. And [then] I sleep.)",
+        options: ["To", "Ga", "Kara", "Soshite"],
+        ans: 3,
+        explanation: "Page 11 Vocabulary: 'soshite' means 'And (for sentences)', whereas '~to~' connects nouns."
+      },
+      {
+        id: 40,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Conjunction GA (But)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Nihongo wa muzukashii desu ______, omoshiroi desu.\n(Clue: Japanese is difficult, but it is interesting.)",
+        options: ["to", "ga", "ka", "ni"],
+        ans: 1,
+        explanation: "Page 12 Vocabulary: 'ga' means 'But'."
+      },
+      {
+        id: 41,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Asking the Date (NANGATSU NANNICHI)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kyou wa ______ ______ desu ka.\n(Clue: What is the date today?)",
+        options: [
+          "nanji / nanban",
+          "nanyoubi / itsu",
+          "nangatsu / nannichi",
+          "donna / dore"
+        ],
+        ans: 2,
+        explanation: "Page 7 Pattern: 'NANGATSU' (what month) + 'NANNICHI' (what day) asks for a calendar date."
+      },
+      {
+        id: 42,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Asking 'When' (ITSU)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Yamada san no tanjoubi wa ______ desu ka.\n(Clue: When is Mr./Ms. Yamada's birthday?)",
+        options: ["itsu", "nanji", "dore", "dou"],
+        ans: 0,
+        explanation: "Page 8 Pattern: 'SUBJECT wa ITSU desu ka' is used to ask WHEN an event/birthday is."
+      },
+      {
+        id: 43,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Relative Day Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kyou wa Suiyoubi desu. ______ wa Mokuyoubi desu.\n(Clue: Today is Wednesday. Tomorrow is Thursday.)",
+        options: ["Kinou", "Ototoi", "Kesa", "Ashita"],
+        ans: 3,
+        explanation: "Page 3 & 9 Vocabulary: 'Ashita' means tomorrow (following Kyou = today)."
+      },
+      {
+        id: 44,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Relative Day Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Ashita wa Kinyoubi desu. ______ wa Doyoubi desu.\n(Clue: Tomorrow is Friday. The day after tomorrow is Saturday.)",
+        options: ["Ototoi", "Asatte", "Senshuu", "Kyonen"],
+        ans: 1,
+        explanation: "Page 3 & 9 Vocabulary: 'Asatte' means day after tomorrow."
+      },
+      {
+        id: 45,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Relative Year Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kotoshi wa 2026-nen desu. ______ wa 2025-nen deshita.\n(Clue: This year is 2026. Last year was 2025.)",
+        options: ["Rainen", "Sengetsu", "Kyonen", "Senshuu"],
+        ans: 2,
+        explanation: "Page 8 Vocabulary: 'kyonen' = last year, 'kotoshi' = this year, 'rainen' = next year."
+      },
+      {
+        id: 46,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Relative Month Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kongetsu wa Shigatsu desu. ______ wa Gogatsu desu.\n(Clue: This month is April. Next month is May.)",
+        options: ["Raigetsu", "Sengetsu", "Raishuu", "Rainen"],
+        ans: 0,
+        explanation: "Page 8 Vocabulary: 'sengetsu' = last month, 'kongetsu' = this month, 'raigetsu' = next month."
+      },
+      {
+        id: 47,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Places Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Watashi wa ______ de hon o yomimasu.\n(Clue: I read books at the library.)",
+        options: ["yuubinkyoku", "ginkou", "bijutsukan", "toshokan"],
+        ans: 3,
+        explanation: "Page 3 & 9 Vocabulary: 'toshokan' = library (yuubinkyoku = post office, ginkou = bank, bijutsukan = art museum)."
+      },
+      {
+        id: 48,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Places Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kanojo wa ______ de tegami o dashimasu.\n(Clue: She mails a letter at the post office.)",
+        options: ["ryou", "yuubinkyoku", "eki", "niwa"],
+        ans: 1,
+        explanation: "Page 3 & 9 Vocabulary: 'yuubinkyoku' = post office, 'tegami' = letter."
+      },
+      {
+        id: 49,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Transportation Vocabulary",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Watashi wa ______ de Toukyou e ikimasu.\n(Clue: I go to Tokyo by bullet train.)",
+        options: ["jitensha", "fune", "shinkansen", "aruite"],
+        ans: 2,
+        explanation: "Page 10 Vocabulary: 'shinkansen' = bullet train, 'ikimasu' = go."
+      },
+      {
+        id: 50,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Mode of Travel (ARUITE)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Eki made ______ kaerimasu.\n(Clue: I return/go home to the station on foot.)",
+        options: ["aruite", "hikouki", "kuruma", "chikatetsu"],
+        ans: 0,
+        explanation: "Page 10 Vocabulary: 'aruite' = on foot, 'kaerimasu' = go home, return."
+      },
+      {
+        id: 51,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Meals & Action Verbs",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Maiasa, watashi wa pan to tamago o ______.\n(Clue: Every morning, I eat bread and egg.)",
+        options: ["nomimasu", "yomimasu", "kikimasu", "tabemasu"],
+        ans: 3,
+        explanation: "Page 10–11 Vocabulary: 'tabemasu' = eat, 'pan' = bread, 'tamago' = egg."
+      },
+      {
+        id: 52,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Drinks & Action Verbs",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Asagohan no toki, gyuunyuu o ______.\n(Clue: At breakfast, I drink milk.)",
+        options: ["tabemasu", "nomimasu", "kaimasu", "kakimasu"],
+        ans: 1,
+        explanation: "Page 11 Vocabulary: 'gyuunyuu / miruku' = milk, 'nomimasu' = drink."
+      },
+      {
+        id: 53,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Action Verbs (YOMIMASU)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Maiban, watashi wa ii me-ru o ______.\n(Clue: Every night, I read emails.)",
+        options: ["suimasu", "aimasu", "yomimasu", "torimasu"],
+        ans: 2,
+        explanation: "Page 11–12 Vocabulary: 'ii me-ru' = email, 'yomimasu' = read."
+      },
+      {
+        id: 54,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Action Verbs (KAKIMASU)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Gakkou de repo-to o ______.\n(Clue: I write a report at school.)",
+        options: ["kakimasu", "kikimasu", "mimasu", "okimasu"],
+        ans: 0,
+        explanation: "Page 11–12 Vocabulary: 'repo-to' = report, 'kakimasu' = write, draw, paint."
+      },
+      {
+        id: 55,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Action Verbs (TORIMASU)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Sakura no shashin o ______.\n(Clue: I take a photograph of cherry blossoms.)",
+        options: ["kaimasu", "yomimasu", "nomimasu", "torimasu"],
+        ans: 3,
+        explanation: "Page 11–13 Vocabulary: 'sakura' = cherry blossom, 'shashin' = photograph, 'torimasu' = take."
+      },
+      {
+        id: 56,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Action Verbs (AIMASU)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Eki de tomodachi ni ______.\n(Clue: I meet my friend at the station.)",
+        options: ["suimasu", "aimasu", "owarimasu", "nemasu"],
+        ans: 1,
+        explanation: "Page 9 & 11 Vocabulary: 'tomodachi' = friend, 'aimasu' = meet."
+      },
+      {
+        id: 57,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "I-Adjectives (Taste)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kono sakana wa totemo ______ desu.\n(Clue: This fish is very delicious/tasty.)",
+        options: ["isogashii", "muzukashii", "oishii", "furui"],
+        ans: 2,
+        explanation: "Page 10 & 12 Vocabulary: 'sakana' = fish, 'totemo' = very, 'oishii' = delicious, tasty."
+      },
+      {
+        id: 58,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "I-Adjectives (Temperature vs Touch)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kyou wa tenki ga ii desu ga, totemo ______ desu.\n(Clue: Today the weather is good, but it is very hot [temperature].)",
+        options: ["atsui", "atatakai", "tsumetai", "hikui"],
+        ans: 0,
+        explanation: "Page 12 Vocabulary: 'atsui' = Hot (temperature), whereas 'atatakai' = Hot (touch)."
+      },
+      {
+        id: 59,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "I-Adjectives (Cold Touch)",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Kono mizu wa ______ desu.\n(Clue: This water is cold [to the touch].)",
+        options: ["samui", "atsui", "yasashii", "tsumetai"],
+        ans: 3,
+        explanation: "Page 13 Vocabulary: 'tsumetai' = Cold (touch), whereas 'samui' = Cold (temperature)."
+      },
+      {
+        id: 60,
+        catCode: "CAT2",
+        catLabel: "2. COMPLETION OF SENTENCES",
+        subTag: "Na-Adjectives",
+        promptBadge: "COMPLETE THE SENTENCE:",
+        q: "Toshokan wa totemo ______ desu.\n(Clue: The library is very quiet.)",
+        options: ["nigiyaka", "shizuka", "hima", "hansamu"],
+        ans: 1,
+        explanation: "Page 13 Vocabulary: 'shizuka (na)' = quiet (nigiyaka = lively, hima = free time, hansamu = handsome)."
+      },
+
+      // =======================================================================
+      // CATEGORY 3: RESPONDING TO QUESTIONS (40 ITEMS: #61–#100)
+      // Balanced ans distribution: 9 A(0), 10 B(1), 11 C(2), 10 D(3)
+      // Total across all 100 items: A=25, B=25, C=25, D=25!
+      // =======================================================================
+      {
+        id: 61,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Current Time",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Ima, nanji desu ka.\n(What time is it now?)",
+        options: [
+          "Ima, Getsuyoubi desu.",
+          "Ima, Shigatsu tsuitachi desu.",
+          "Ima, gogo shichiji juugofun desu.",
+          "Ima, toshokan desu."
+        ],
+        ans: 2,
+        explanation: "Page 2 Dialogue: Drop 'NANJI' and replace with the specific time -> 'Ima, gogo shichiji juugofun desu.' (It is 7:15 pm now.)"
+      },
+      {
+        id: 62,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Time in Another Country",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Chuugoku wa ima nanji desu ka.\n(What time is it in China now?)",
+        options: [
+          "Chuugoku wa ima gogo kuji han desu.",
+          "Chuugoku wa ima Suiyoubi desu.",
+          "Chuugoku wa ima Juugatsu desu.",
+          "Hai, Chuugoku wa ima nanji desu."
+        ],
+        ans: 0,
+        explanation: "Page 2 Dialogue: Replace 'nanji' with the time -> 'Chuugoku wa ima gogo kuji han desu.' (It is 9:30 P.M. in China now.)"
+      },
+      {
+        id: 63,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Day of the Week",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kyou wa nanyoubi desu ka.\n(What day is it today?)",
+        options: [
+          "Kyou wa gozen hachiji desu.",
+          "Kyou wa Jugatsu juugonichi desu.",
+          "Kyou wa hatarakimasu.",
+          "Kyou wa Getsuyoubi desu."
+        ],
+        ans: 3,
+        explanation: "Page 2 Dialogue: Drop 'NANYOUBI' and replace with the day of the week -> 'Kyou wa Getsuyoubi desu.'"
+      },
+      {
+        id: 64,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Past Day of the Week",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou wa nanyoubi deshita ka.\n(What day was it yesterday?)",
+        options: [
+          "Kinou wa Nichiyoubi desu.",
+          "Kinou wa Nichiyoubi deshita.",
+          "Kinou wa gozen kuji deshita.",
+          "Kinou wa Mikka deshita."
+        ],
+        ans: 1,
+        explanation: "Page 8 Rule: To answer a past question ending in 'deshita ka', keep the past copula 'deshita' -> 'Kinou wa Nichiyoubi deshita.'"
+      },
+      {
+        id: 65,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Yes/No Verb Question (HAI)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Mainichi, Yamada san wa hatarakimasu ka.\n(Respond: YES, Ms. Yamada works everyday.)",
+        options: [
+          "Hai, mainichi Yamada san wa hatarakimasen.",
+          "Hai, mainichi Yamada san wa hatarakimashita.",
+          "Hai, mainichi Yamada san wa hatarakimasu.",
+          "Iie, mainichi Yamada san wa hatarakimasu."
+        ],
+        ans: 2,
+        explanation: "Page 5 Pattern: (If yes) — Hai, subject wa Verb-positive form -> 'Hai, mainichi Yamada san wa hatarakimasu.'"
+      },
+      {
+        id: 66,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Yes/No Verb Question (IIE)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Mainichi, Yamada san wa hatarakimasu ka.\n(Respond: NO, Ms. Yamada does not work everyday.)",
+        options: [
+          "Iie, mainichi Yamada san wa hatarakimasen.",
+          "Iie, mainichi Yamada san wa hatarakimasu.",
+          "Iie, mainichi Yamada san wa hatarakimasendeshita.",
+          "Hai, mainichi Yamada san wa hatarakimasen."
+        ],
+        ans: 0,
+        explanation: "Page 5 Pattern: (If no) — Iie, subject wa Verb-negative form -> 'Iie, mainichi Yamada san wa hatarakimasen.'"
+      },
+      {
+        id: 67,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Past Yes/No Verb Question (HAI)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou, Yamada san wa hatarakimashita ka.\n(Respond: YES, Ms. Yamada worked yesterday.)",
+        options: [
+          "Hai, kinou Yamada san wa hatarakimasu.",
+          "Iie, kinou Yamada san wa hatarakimashita.",
+          "Hai, kinou Yamada san wa hatarakimasendeshita.",
+          "Hai, kinou Yamada san wa hatarakimashita."
+        ],
+        ans: 3,
+        explanation: "Page 5 Dialogue: Past positive question answered with Yes -> 'Hai, kinou Yamada san wa hatarakimashita.'"
+      },
+      {
+        id: 68,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Past Yes/No Verb Question (IIE)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou, Yamada san wa hatarakimashita ka.\n(Respond: NO, Ms. Yamada did not work yesterday.)",
+        options: [
+          "Iie, Yamada san wa hatarakimasen.",
+          "Iie, Yamada san wa hatarakimasendeshita.",
+          "Iie, Yamada san wa hatarakimashita.",
+          "Hai, Yamada san wa hatarakimasendeshita."
+        ],
+        ans: 1,
+        explanation: "Page 5 Dialogue: Past question answered with No requires the past-negative verb '~masendeshita' -> 'Iie, Yamada san wa hatarakimasendeshita.'"
+      },
+      {
+        id: 69,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Responding to NANJI NI (Present)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata wa nanji ni okimasu ka.\n(What time do you get up / wake up?)",
+        options: [
+          "Watashi wa gozen goji okimasu.",
+          "Watashi wa gozen goji ni okimashita.",
+          "Watashi wa gozen goji ni okimasu.",
+          "Anata wa gozen goji ni okimasu."
+        ],
+        ans: 2,
+        explanation: "Page 5 Dialogue: Replace 'anata' with 'watashi', replace 'nanji' with 'gozen goji', keep particle 'ni', and match present tense 'okimasu'."
+      },
+      {
+        id: 70,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Responding to NANJI NI (Past)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou no ban, anata wa nanji ni nemashita ka.\n(Last night, what time did you go to bed?)",
+        options: [
+          "Kinou no ban, watashi wa gogo juuji ni nemashita.",
+          "Kinou no ban, watashi wa gogo juuji ni nemasu.",
+          "Kinou no ban, watashi wa gogo juuji kara nemashita.",
+          "Kinou no ban, anata wa gogo juuji ni nemashita."
+        ],
+        ans: 0,
+        explanation: "Page 5 Dialogue: Match the past-tense verb 'nemashita' and keep particle 'ni' after the time -> 'Kinou no ban, watashi wa gogo juuji ni nemashita.'"
+      },
+      {
+        id: 71,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Responding to KARA... MADE (Time Span)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata wa nanji kara nanji made benkyoushimasu ka.\n(From what time until what time do you study?)",
+        options: [
+          "Watashi wa gogo shichiji ni gogo kuji ni benkyoushimasu.",
+          "Watashi wa gogo shichiji made gogo kuji kara benkyoushimasu.",
+          "Watashi wa gogo shichiji to gogo kuji benkyoushimasu.",
+          "Watashi wa gogo shichiji kara gogo kuji made benkyoushimasu."
+        ],
+        ans: 3,
+        explanation: "Page 5 Dialogue: Replace the two 'nanji' slots with start and end times keeping 'kara' and 'made' in order."
+      },
+      {
+        id: 72,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Store Operating Hours",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: De-pato wa nanji kara nanji made desu ka.\n(From what time until what time is the department store open?)",
+        options: [
+          "De-pato wa gozen juuji ni gogo kuji desu.",
+          "De-pato wa gozen juuji kara gogo kuji made desu.",
+          "De-pato wa Getsuyoubi desu.",
+          "De-pato wa gozen juuji kara gogo kuji made hatarakimasu."
+        ],
+        ans: 1,
+        explanation: "Page 6 Dialogue: Establishments use 'nanji kara nanji made desu' to state operating hours -> 'De-pato wa gozen juuji kara gogo kuji made desu.'"
+      },
+      {
+        id: 73,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Responding to NANJI KARA",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Konban, anata wa nanji kara benkyoushimasu ka.\n(Tonight, from what time will you study?)",
+        options: [
+          "Konban, watashi wa gogo hachiji made benkyoushimasu.",
+          "Konban, watashi wa gogo hachiji ni benkyoushimasu.",
+          "Konban, watashi wa gogo hachiji kara benkyoushimasu.",
+          "Konban, watashi wa gogo hachiji kara benkyoushimashita."
+        ],
+        ans: 2,
+        explanation: "Page 6 Dialogue: Keep 'kara' (from) and future/present 'benkyoushimasu' -> 'Konban, watashi wa gogo hachiji kara benkyoushimasu.'"
+      },
+      {
+        id: 74,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Responding to NANYOUBI KARA... MADE",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata wa nanyoubi kara nanyoubi made hatarakimasu ka.\n(From what day until what day do you work?)",
+        options: [
+          "Watashi wa Getsuyoubi kara Doyoubi made hatarakimasu.",
+          "Watashi wa Getsuyoubi to Doyoubi hatarakimasu.",
+          "Watashi wa Ichigatsu kara Rokugatsu made hatarakimasu.",
+          "Watashi wa Getsuyoubi kara Doyoubi made yasumimasu."
+        ],
+        ans: 0,
+        explanation: "Page 6 Dialogue: Replace the two 'nanyoubi' slots with days of the week -> 'Watashi wa Getsuyoubi kara Doyoubi made hatarakimasu.'"
+      },
+      {
+        id: 75,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Current Date",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kyou wa nangatsu nannichi desu ka.\n(What is the date today?)",
+        options: [
+          "Kyou wa Kayoubi desu.",
+          "Kyou wa gozen kuji desu.",
+          "Kyou wa Juugatsu juugonichi deshita.",
+          "Kyou wa Juugatsu juugonichi desu."
+        ],
+        ans: 3,
+        explanation: "Page 8 Dialogue: Replace 'nangatsu nannichi' with the month and day, keeping present copula 'desu' -> 'Kyou wa Juugatsu juugonichi desu.'"
+      },
+      {
+        id: 76,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Past Date",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou wa nangatsu nannichi deshita ka.\n(What was the date yesterday?)",
+        options: [
+          "Kinou wa Juugatsu juuyokka desu.",
+          "Kinou wa Juugatsu juuyokka deshita.",
+          "Kinou wa Mokuyoubi deshita.",
+          "Kinou wa gogo yoji deshita."
+        ],
+        ans: 1,
+        explanation: "Page 8 Dialogue: Replace 'nangatsu nannichi' with the past date and keep 'deshita' -> 'Kinou wa Juugatsu juuyokka deshita.'"
+      },
+      {
+        id: 77,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Birthday Date (ITSU)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Yamada san no tanjoubi wa itsu desu ka.\n(When is Mr./Ms. Yamada's birthday?)",
+        options: [
+          "Yamada san no tanjoubi wa gogo sanji desu.",
+          "Yamada san no tanjoubi wa toshokan desu.",
+          "Yamada san no tanjoubi wa Ichigatsu juuichinichi desu.",
+          "Hai, Yamada san no tanjoubi desu."
+        ],
+        ans: 2,
+        explanation: "Page 8 Dialogue: Replace 'ITSU' with a calendar date -> 'Yamada san no tanjoubi wa Ichigatsu juuichinichi desu.'"
+      },
+      {
+        id: 78,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Asking Rest Days (ITSU)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Yamada san no yasumi wa itsu desu ka.\n(When are Ms. Yamada's rest days?)",
+        options: [
+          "Yamada san no yasumi wa Kayoubi to Suiyoubi desu.",
+          "Yamada san no yasumi wa hatarakimasu.",
+          "Yamada san no yasumi wa ginkou desu.",
+          "Yamada san no yasumi wa gozen shichiji desu."
+        ],
+        ans: 0,
+        explanation: "Page 6 & 8: State the rest days connected with 'to' (and) -> 'Yamada san no yasumi wa Kayoubi to Suiyoubi desu.'"
+      },
+      {
+        id: 79,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Past Activity Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou no ban, anata wa benkyoushimashita ka.\n(Respond: YES, I studied last night.)",
+        options: [
+          "Hai, kinou no ban benkyoushimasu.",
+          "Iie, kinou no ban benkyoushimashita.",
+          "Hai, kinou no ban benkyoushimashite.",
+          "Hai, kinou no ban benkyoushimashita."
+        ],
+        ans: 3,
+        explanation: "Past question answered with Yes must use the past-positive verb 'benkyoushimashita'."
+      },
+      {
+        id: 80,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Past Activity Question (Negative)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kesa, anata wa asagohan o tabemashita ka.\n(Respond: NO, I did not eat breakfast this morning.)",
+        options: [
+          "Iie, tabemasen.",
+          "Iie, tabemasendeshita.",
+          "Iie, tabemashita.",
+          "Hai, tabemasendeshita."
+        ],
+        ans: 1,
+        explanation: "'Kesa' (this morning) with 'tabemashita ka' is a past question; answering No requires past-negative 'tabemasendeshita'."
+      },
+      {
+        id: 81,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Future Plan Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Ashita, anata wa gakkou e ikimasu ka.\n(Respond: YES, I will go to school tomorrow.)",
+        options: [
+          "Hai, ashita gakkou e ikimashita.",
+          "Iie, ashita gakkou e ikimasu.",
+          "Hai, ashita gakkou e ikimasu.",
+          "Hai, ashita gakkou e kimasendeshita."
+        ],
+        ans: 2,
+        explanation: "Future positive action uses the ~MASU form ('ikimasu'), matching 'Ashita' (tomorrow)."
+      },
+      {
+        id: 82,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Bank Hours Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Ginkou wa nanji kara nanji made desu ka.\n(From what time until what time is the bank open?)",
+        options: [
+          "Ginkou wa gozen kuji kara gogo sanji made desu.",
+          "Ginkou wa Kinyoubi desu.",
+          "Ginkou wa shinkansen desu.",
+          "Ginkou wa gozen kuji ni okimasu."
+        ],
+        ans: 0,
+        explanation: "Page 6 & 9: 'Ginkou' (bank) + 'gozen kuji kara gogo sanji made desu' properly answers 'nanji kara nanji made desu ka'."
+      },
+      {
+        id: 83,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Post Office Hours Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Yuubinkyoku wa nanji made desu ka.\n(Until what time is the post office open?)",
+        options: [
+          "Yuubinkyoku wa gogo goji kara desu.",
+          "Yuubinkyoku wa gogo goji ni nemasu.",
+          "Yuubinkyoku wa Shigatsu desu.",
+          "Yuubinkyoku wa gogo goji made desu."
+        ],
+        ans: 3,
+        explanation: "When asked 'nanji made desu ka' (until what time), reply using '~made desu' -> 'Yuubinkyoku wa gogo goji made desu.'"
+      },
+      {
+        id: 84,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Work Finish Time Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Oshigoto wa nanji ni owarimasu ka.\n(What time does work finish?)",
+        options: [
+          "Gogo roppun ni owarimasu.",
+          "Gogo rokuji ni owarimasu.",
+          "Gogo rokuji kara owarimashita.",
+          "Getsuyoubi ni owarimasu."
+        ],
+        ans: 1,
+        explanation: "'owarimasu' = finish; answer 'nanji ni' with a specific hour + 'ni' -> 'Gogo rokuji ni owarimasu.' (It finishes at 6:00 p.m.)"
+      },
+      {
+        id: 85,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Transportation Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata wa nan de gakkou e ikimasu ka.\n(How / by what transport do you go to school?)",
+        options: [
+          "Gohan de ikimasu.",
+          "Toshokan de ikimasu.",
+          "Densha de ikimasu.",
+          "Getsuyoubi de ikimasu."
+        ],
+        ans: 2,
+        explanation: "Page 10 Vocabulary: 'Densha' (electric train) is the only mode of transportation among the choices."
+      },
+      {
+        id: 86,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Companion Question (HITORIDE)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Dare to bijutsukan e ikimashita ka.\n(With whom did you go to the art museum?)",
+        options: [
+          "Hitoride ikimashita.",
+          "Chikatetsu de ikimashita.",
+          "Nichiyoubi ni ikimashita.",
+          "Oishii deshita."
+        ],
+        ans: 0,
+        explanation: "Page 9 Vocabulary: 'hitoride' means 'alone, by oneself', answering who accompanied you."
+      },
+      {
+        id: 87,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Food Question (TABEMASU)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Hirugohan ni nani o tabemasu ka.\n(What will you eat for lunch?)",
+        options: [
+          "Ocha o nomimasu.",
+          "Tegami o kakimasu.",
+          "Bideo o mimasu.",
+          "Sakana to gohan o tabemasu."
+        ],
+        ans: 3,
+        explanation: "Page 10 Vocabulary: 'Sakana' (fish) and 'gohan' (cooked rice/meal) are food items paired with 'tabemasu' (eat)."
+      },
+      {
+        id: 88,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Drink Question (NOMIMASU)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Koucha o nomimasu ka.\n(Respond: NO, I will drink green tea.)",
+        options: [
+          "Hai, koucha o nomimasu.",
+          "Iie, ocha o nomimasu.",
+          "Iie, niku o tabemasu.",
+          "Iie, koucha o nomimasendeshita."
+        ],
+        ans: 1,
+        explanation: "Page 11 Vocabulary: 'koucha' = black tea; 'ocha' = green tea. Answering No and stating green tea -> 'Iie, ocha o nomimasu.'"
+      },
+      {
+        id: 89,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Weekend Activity Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Doyoubi ni nani o shimasu ka.\n(What will you do on Saturday?)",
+        options: [
+          "Resutoran de tomodachi ni aimashita.",
+          "Su-pa- de kudamono o kaimasendeshita.",
+          "Eiga o mimasu.",
+          "Kyonen deshita."
+        ],
+        ans: 2,
+        explanation: "The question asks in present/future tense ('shimasu ka'), so the answer must also be in ~MASU form ('Eiga o mimasu' = I will watch a movie)."
+      },
+      {
+        id: 90,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Past Purchase Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou, depa-to de nani o kaimashita ka.\n(Yesterday, what did you buy at the department store?)",
+        options: [
+          "Atarashii kuruma o kaimashita.",
+          "Atarashii kuruma o kaimasu.",
+          "Eki de aimashita.",
+          "Shukudai o benkyoushimasu."
+        ],
+        ans: 0,
+        explanation: "'Kinou' + 'kaimashita ka' (did you buy) requires a past-tense response with 'kaimashita' -> 'Atarashii kuruma o kaimashita.' (I bought a new car.)"
+      },
+      {
+        id: 91,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Adjective Question (DOU)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Nihongo no benkyou wa dou desu ka.\n(How is your Japanese study?)",
+        options: [
+          "Juugatsu tooka desu.",
+          "Gogo yoji kara desu.",
+          "Shinkansen de ikimasu.",
+          "Muzukashii desu ga, totemo tanoshii desu."
+        ],
+        ans: 3,
+        explanation: "Page 12–13: 'dou' asks 'How?'; 'Muzukashii desu ga, totemo tanoshii desu' means 'It is difficult, but very enjoyable.'"
+      },
+      {
+        id: 92,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Adjective Question (DONNA)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata no machi wa donna machi desu ka.\n(What kind of town is your town?)",
+        options: [
+          "Totemo kirei de, benri na machi desu.",
+          "Ashita no asa desu.",
+          "Hirugohan o tabemasu.",
+          "Sensei ni aimashita."
+        ],
+        ans: 0,
+        explanation: "Page 12–13: 'donna' asks 'what kind of~'; 'kirei' (beautiful/clean) and 'benri (na)' (convenient) describe a town."
+      },
+      {
+        id: 93,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Which One Question (DORE)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata no jitensha wa dore desu ka.\n(Which one is your bicycle?)",
+        options: [
+          "Gogo goji desu.",
+          "Ano akai jitensha desu.",
+          "Raishuu no Getsuyoubi desu.",
+          "Yasai to kudamono desu."
+        ],
+        ans: 1,
+        explanation: "Page 12: 'dore' asks 'which one'; 'Ano akai jitensha desu' means 'It is that red bicycle.'"
+      },
+      {
+        id: 94,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Health / Status Question (GENKI)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Ogenki desu ka.\n(Are you healthy / doing well?)",
+        options: [
+          "Hai, hima desu.",
+          "Hai, samui desu.",
+          "Hai, totemo genki desu.",
+          "Hai, furui desu."
+        ],
+        ans: 2,
+        explanation: "Page 13 Vocabulary: 'genki (na)' = healthy, sound -> 'Hai, totemo genki desu.' (Yes, I am very healthy/well.)"
+      },
+      {
+        id: 95,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Free Time Question (HIMA)",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Ashita, anata wa hima desu ka.\n(Respond: NO, I am busy tomorrow.)",
+        options: [
+          "Iie, totemo isogashii desu.",
+          "Hai, totemo hima desu.",
+          "Iie, totemo yasashii desu.",
+          "Iie, totemo chiisai desu."
+        ],
+        ans: 0,
+        explanation: "Page 12–13 Vocabulary: 'hima (na)' = free (time), 'isogashii' = busy -> 'Iie, totemo isogashii desu.' (No, I am very busy.)"
+      },
+      {
+        id: 96,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Past Weather Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kinou wa samukatta desu ka. / Kinou wa samui deshita ka.\n(Respond: YES, yesterday was cold.)",
+        options: [
+          "Hai, kinou wa atsui deshita.",
+          "Iie, kinou wa samui deshita.",
+          "Hai, kinou wa samui desu.",
+          "Hai, kinou wa samui deshita."
+        ],
+        ans: 3,
+        explanation: "Page 8 & 13: 'samui' = cold (temperature), and past positive copula is 'deshita' -> 'Hai, kinou wa samui deshita.'"
+      },
+      {
+        id: 97,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Famous Mountain Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Fujisan wa yuumei na yama desu ka.\n(Is Mt. Fuji a famous mountain?)",
+        options: [
+          "Iie, hikui desu.",
+          "Hai, totemo yuumei na yama desu.",
+          "Hai, sakura desu.",
+          "Iie, warui deshita."
+        ],
+        ans: 1,
+        explanation: "Page 12–13: 'yuumei (na)' = famous, 'yama' = mountain -> 'Hai, totemo yuumei na yama desu.'"
+      },
+      {
+        id: 98,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Person Description Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Kare wa donna hito desu ka.\n(What kind of person is he / your boyfriend?)",
+        options: [
+          "Hansamu de, totemo shinsetsu na hito desu.",
+          "Gogo juuniji han desu.",
+          "Senshuu no Kinyoubi deshita.",
+          "Hikouki de kimasu."
+        ],
+        ans: 0,
+        explanation: "Page 9 & 13: 'kare' = he/boyfriend, 'hito' = person, 'hansamu (na)' = handsome, 'shinsetsu (na)' = kind."
+      },
+      {
+        id: 99,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Dormitory Size & Age Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Anata no ryou wa atarashii desu ka.\n(Respond: NO, it is old and small.)",
+        options: [
+          "Hai, atarashii desu.",
+          "Iie, ookii desu.",
+          "Iie, furui desu. Soshite, chiisai desu.",
+          "Iie, takai desu. Soshite, suteki desu."
+        ],
+        ans: 2,
+        explanation: "Page 11–13: 'furui' = old (not age), 'soshite' = and (for sentences), 'chiisai' = small."
+      },
+      {
+        id: 100,
+        catCode: "CAT3",
+        catLabel: "3. RESPONDING TO QUESTIONS",
+        subTag: "Price & Quality Question",
+        promptBadge: "SELECT THE PROPER RESPONSE:",
+        q: "Question: Sono mise no tabemono wa takai desu ka.\n(Is the food at that shop expensive?)",
+        options: [
+          "Iie, amari yasashii desu.",
+          "Hai, muzukashii desu.",
+          "Iie, atatakai desu.",
+          "Iie, yasui desu. Soshite, totemo oishii desu."
+        ],
+        ans: 3,
+        explanation: "Page 10–13: 'mise' = store/shop, 'tabemono' = food, 'takai' = expensive, 'yasui' = inexpensive, 'oishii' = delicious."
+      }
+    ];
+
+    // =========================================================================
+    // APPLICATION STATE & PERSISTENCE
+    // =========================================================================
+    const STORAGE_KEY_BOOKMARKS = 'nihongo_applied_bookmarks_v1';
+    const STORAGE_KEY_MISSED = 'nihongo_applied_missed_v1';
+
+    let bookmarkedIds = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY_BOOKMARKS) || '[]'));
+    let missedIds = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY_MISSED) || '[]'));
+
+    let config = {
+      scope: 'ALL',
+      mode: 'STUDY',
+      shuffleQuestions: false,
+      shuffleOptions: true,
+      timerMinutes: 60
+    };
+
+    let session = {
+      items: [],
+      currentIndex: 0,
+      userAnswers: {}, // item.id -> chosen option index (0..3)
+      streak: 0,
+      timerInterval: null,
+      secondsRemaining: 3600,
+      isSubmitted: false
+    };
+
+    // =========================================================================
+    // DOM REFERENCES
+    // =========================================================================
+    const setupView = document.getElementById('setupView');
+    const quizView = document.getElementById('quizView');
+    const resultsView = document.getElementById('resultsView');
+
+    const setupAlert = document.getElementById('setupAlert');
+    const savedBookmarkCount = document.getElementById('savedBookmarkCount');
+    const savedMissedCount = document.getElementById('savedMissedCount');
+    const timerConfigRow = document.getElementById('timerConfigRow');
+
+    const timerBadge = document.getElementById('timerBadge');
+    const timerText = document.getElementById('timerText');
+    const headerScoreBadge = document.getElementById('headerScoreBadge');
+    const headerScoreVal = document.getElementById('headerScoreVal');
+    const headerAnsweredVal = document.getElementById('headerAnsweredVal');
+    const streakVal = document.getElementById('streakVal');
+
+    const currentScopeBadge = document.getElementById('currentScopeBadge');
+    const currentModeBadge = document.getElementById('currentModeBadge');
+    const qIndexDisplay = document.getElementById('qIndexDisplay');
+    const qTotalDisplay = document.getElementById('qTotalDisplay');
+    const progressBarFill = document.getElementById('progressBarFill');
+
+    const questionCardBox = document.getElementById('questionCardBox');
+    const qTopicTag = document.getElementById('qTopicTag');
+    const qCategoryTag = document.getElementById('qCategoryTag');
+    const qOrigIdTag = document.getElementById('qOrigIdTag');
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    const bookmarkStarIcon = document.getElementById('bookmarkStarIcon');
+    const bookmarkBtnText = document.getElementById('bookmarkBtnText');
+
+    const questionPromptBadge = document.getElementById('questionPromptBadge');
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const explanationBox = document.getElementById('explanationBox');
+    const explanationIcon = document.getElementById('explanationIcon');
+    const explanationHeading = document.getElementById('explanationHeading');
+    const explanationText = document.getElementById('explanationText');
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const finishExamBtn = document.getElementById('finishExamBtn');
+
+    const paletteSidebar = document.getElementById('paletteSidebar');
+    const paletteGrid = document.getElementById('paletteGrid');
+    const paletteAnsweredCount = document.getElementById('paletteAnsweredCount');
+    const paletteFlaggedCount = document.getElementById('paletteFlaggedCount');
+
+    const confirmModal = document.getElementById('confirmModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalCancelBtn = document.getElementById('modalCancelBtn');
+    const modalConfirmBtn = document.getElementById('modalConfirmBtn');
+
+    // =========================================================================
+    // HELPERS
+    // =========================================================================
+    function savePersistentSets() {
+      localStorage.setItem(STORAGE_KEY_BOOKMARKS, JSON.stringify([...bookmarkedIds]));
+      localStorage.setItem(STORAGE_KEY_MISSED, JSON.stringify([...missedIds]));
+      updateSavedCountsUI();
+    }
+
+    function updateSavedCountsUI() {
+      savedBookmarkCount.textContent = bookmarkedIds.size;
+      savedMissedCount.textContent = missedIds.size;
+    }
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function formatTime(totalSeconds) {
+      const mins = Math.floor(totalSeconds / 60);
+      const secs = totalSeconds % 60;
+      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    // =========================================================================
+    // START SCREEN CONTROLS
+    // =========================================================================
+    document.querySelectorAll('.scope-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        playSfx('blip');
+        document.querySelectorAll('.scope-btn').forEach(b => {
+          b.classList.remove('bg-gold8-400', 'ring-4', 'ring-indigo8-950');
+          if (b.dataset.scope === 'BOOKMARKED') b.classList.add('bg-sakura-200');
+          else if (b.dataset.scope === 'MISSED') b.classList.add('bg-rose-200');
+          else b.classList.add('bg-washi-50');
+        });
+        btn.classList.remove('bg-washi-50', 'bg-sakura-200', 'bg-rose-200');
+        btn.classList.add('bg-gold8-400', 'ring-4', 'ring-indigo8-950');
+        config.scope = btn.dataset.scope;
+        setupAlert.classList.add('hidden');
+      });
+    });
+
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        playSfx('blip');
+        document.querySelectorAll('.mode-btn').forEach(b => {
+          b.classList.remove('bg-jade8-400', 'ring-4', 'ring-indigo8-950');
+          b.classList.add('bg-washi-50');
+        });
+        btn.classList.remove('bg-washi-50');
+        btn.classList.add('bg-jade8-400', 'ring-4', 'ring-indigo8-950');
+        config.mode = btn.dataset.mode;
+
+        if (config.mode === 'EXAM') {
+          timerConfigRow.classList.remove('opacity-50', 'pointer-events-none');
+        } else {
+          timerConfigRow.classList.add('opacity-50', 'pointer-events-none');
+        }
+      });
+    });
+
+    document.getElementById('startExamBtn').addEventListener('click', () => {
+      config.shuffleQuestions = document.getElementById('shuffleQuestionsToggle').checked;
+      config.shuffleOptions = document.getElementById('shuffleOptionsToggle').checked;
+      config.timerMinutes = parseInt(document.getElementById('timerDurationSelect').value, 10) || 60;
+      startNewSession();
+    });
+
+    document.getElementById('openSetupBtn').addEventListener('click', () => {
+      playSfx('blip');
+      stopTimer();
+      showView('SETUP');
+    });
+
+    function showView(viewName) {
+      setupView.classList.add('hidden');
+      quizView.classList.add('hidden');
+      resultsView.classList.add('hidden');
+
+      if (viewName === 'SETUP') {
+        setupView.classList.remove('hidden');
+        timerBadge.classList.add('hidden');
+        timerBadge.classList.remove('flex');
+        headerScoreBadge.classList.add('hidden');
+        headerScoreBadge.classList.remove('sm:flex');
+      } else if (viewName === 'QUIZ') {
+        quizView.classList.remove('hidden');
+        if (config.mode === 'EXAM') {
+          timerBadge.classList.remove('hidden');
+          timerBadge.classList.add('flex');
+        } else {
+          timerBadge.classList.add('hidden');
+          timerBadge.classList.remove('flex');
+        }
+        headerScoreBadge.classList.remove('hidden');
+        headerScoreBadge.classList.add('sm:flex');
+      } else if (viewName === 'RESULTS') {
+        resultsView.classList.remove('hidden');
+        timerBadge.classList.add('hidden');
+        timerBadge.classList.remove('flex');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // SESSION INITIALIZATION & TIMER
+    // =========================================================================
+    function startNewSession() {
+      let filtered = [...QUESTION_BANK];
+
+      if (['CAT1', 'CAT2', 'CAT3'].includes(config.scope)) {
+        filtered = filtered.filter(item => item.catCode === config.scope);
+      } else if (config.scope === 'BOOKMARKED') {
+        filtered = filtered.filter(item => bookmarkedIds.has(item.id));
+      } else if (config.scope === 'MISSED') {
+        filtered = filtered.filter(item => missedIds.has(item.id));
+      }
+
+      if (filtered.length === 0) {
+        playSfx('wrong');
+        setupAlert.textContent = "NO STAGES IN THIS CATEGORY YET! Star items or miss some questions first, or choose one of the 3 Applied Categories.";
+        setupAlert.classList.remove('hidden');
+        return;
+      }
+
+      playSfx('start');
+
+      if (config.shuffleQuestions) {
+        filtered = shuffleArray(filtered);
+      }
+
+      session.items = filtered.map(raw => {
+        const indexedOptions = raw.options.map((text, idx) => ({
+          text,
+          isCorrect: idx === raw.ans
+        }));
+        const finalOptions = config.shuffleOptions ? shuffleArray(indexedOptions) : indexedOptions;
+        const newCorrectIndex = finalOptions.findIndex(o => o.isCorrect);
+        return {
+          ...raw,
+          preparedOptions: finalOptions.map(o => o.text),
+          preparedAnswer: newCorrectIndex
+        };
+      });
+
+      session.currentIndex = 0;
+      session.userAnswers = {};
+      session.streak = 0;
+      session.isSubmitted = false;
+
+      const scopeNames = {
+        ALL: 'ALL 100 ITEMS',
+        CAT1: '1. TIME & DATES',
+        CAT2: '2. SENTENCE COMPLETION',
+        CAT3: '3. RESPONDING TO Qs',
+        BOOKMARKED: 'BOOKMARKED ITEMS',
+        MISSED: 'MISSED BOSSES'
+      };
+      currentScopeBadge.textContent = scopeNames[config.scope];
+      currentModeBadge.textContent = config.mode === 'STUDY' ? 'STUDY MODE' : 'TIMED EXAM';
+
+      stopTimer();
+      if (config.mode === 'EXAM') {
+        session.secondsRemaining = config.timerMinutes * 60;
+        timerText.textContent = formatTime(session.secondsRemaining);
+        session.timerInterval = setInterval(() => {
+          session.secondsRemaining--;
+          timerText.textContent = formatTime(Math.max(0, session.secondsRemaining));
+          if (session.secondsRemaining <= 300) {
+            timerBadge.classList.add('bg-crimson8-700', 'text-white');
+          }
+          if (session.secondsRemaining <= 0) {
+            stopTimer();
+            finalizeAndShowResults();
+          }
+        }, 1000);
+      }
+
+      showView('QUIZ');
+      renderPalette();
+      renderQuestion();
+      updateScoreHeader();
+    }
+
+    function stopTimer() {
+      if (session.timerInterval) {
+        clearInterval(session.timerInterval);
+        session.timerInterval = null;
+      }
+      timerBadge.classList.remove('bg-crimson8-700', 'text-white');
+    }
+
+    // =========================================================================
+    // QUESTION RENDERING & INTERACTION
+    // =========================================================================
+    function renderQuestion() {
+      const total = session.items.length;
+      const idx = session.currentIndex;
+      const item = session.items[idx];
+      const chosenIdx = session.userAnswers[item.id];
+      const hasAnswered = chosenIdx !== undefined;
+
+      qIndexDisplay.textContent = idx + 1;
+      qTotalDisplay.textContent = total;
+      progressBarFill.style.width = `${Math.round(((idx + 1) / total) * 100)}%`;
+
+      qTopicTag.textContent = item.catLabel;
+      qCategoryTag.textContent = item.subTag;
+      qOrigIdTag.textContent = `#${String(item.id).padStart(3, '0')}`;
+
+      const isBookmarked = bookmarkedIds.has(item.id);
+      if (isBookmarked) {
+        bookmarkBtn.classList.remove('bg-washi-200');
+        bookmarkBtn.classList.add('bg-sakura-300');
+        bookmarkStarIcon.textContent = '★';
+        bookmarkBtnText.textContent = 'STARRED';
+      } else {
+        bookmarkBtn.classList.remove('bg-sakura-300');
+        bookmarkBtn.classList.add('bg-washi-200');
+        bookmarkStarIcon.textContent = '☆';
+        bookmarkBtnText.textContent = 'BOOKMARK';
+      }
+
+      questionPromptBadge.textContent = item.promptBadge || 'SELECT THE BEST ANSWER:';
+      questionText.textContent = `${idx + 1}. ${item.q}`;
+      optionsContainer.innerHTML = '';
+      explanationBox.classList.add('hidden');
+
+      const letters = ['A', 'B', 'C', 'D'];
+
+      item.preparedOptions.forEach((optText, optIdx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'rpg-choice w-full text-left p-3.5 sm:p-4 flex items-start gap-3 cursor-pointer focus:outline-none';
+
+        let badgeClass = 'bg-indigo8-800 text-gold8-400 border-2 border-black';
+        let cardOverride = '';
+        let statusTag = '';
+
+        if (config.mode === 'STUDY' && hasAnswered) {
+          if (optIdx === item.preparedAnswer) {
+            cardOverride = '!bg-jade8-400 !border-indigo8-950 !shadow-[4px_4px_0_#0f1224] is-selected';
+            badgeClass = 'bg-indigo8-950 text-jade8-400 border-2 border-black';
+            statusTag = `<span class="font-pixel text-[9px] px-2 py-1 bg-indigo8-950 text-jade8-400 shrink-0 ml-auto">SUGOI! +1</span>`;
+          } else if (optIdx === chosenIdx) {
+            cardOverride = '!bg-crimson8-500 !text-white !border-indigo8-950 !shadow-[4px_4px_0_#0f1224] is-selected';
+            badgeClass = 'bg-indigo8-950 text-crimson8-400 border-2 border-black';
+            statusTag = `<span class="font-pixel text-[9px] px-2 py-1 bg-indigo8-950 text-crimson8-400 shrink-0 ml-auto">MISS!</span>`;
+          } else {
+            cardOverride = 'opacity-55';
+          }
+        } else if (config.mode === 'EXAM' && hasAnswered && optIdx === chosenIdx) {
+          cardOverride = '!bg-gold8-400 !border-indigo8-950 !shadow-[4px_4px_0_#0f1224] is-selected';
+          badgeClass = 'bg-indigo8-950 text-gold8-400 border-2 border-black';
+          statusTag = `<span class="font-pixel text-[9px] px-2 py-1 bg-indigo8-950 text-gold8-400 shrink-0 ml-auto">LOCKED</span>`;
+        }
+
+        btn.className += ` ${cardOverride}`;
+        btn.innerHTML = `
+          <span class="cursor-arrow font-pixel text-xs text-sakura-500 mt-1 shrink-0">▶</span>
+          <span class="px-2 py-1 font-pixel text-[10px] shrink-0 mt-0.5 ${badgeClass}">${letters[optIdx]}</span>
+          <span class="font-vt text-2xl leading-snug flex-1">${optText}</span>
+          ${statusTag}
+        `;
+        btn.addEventListener('click', () => handleSelectOption(optIdx));
+        optionsContainer.appendChild(btn);
+      });
+
+      if (config.mode === 'STUDY' && hasAnswered) {
+        const isCorrect = chosenIdx === item.preparedAnswer;
+        explanationBox.classList.remove('hidden', 'bg-emerald-100', 'bg-rose-100');
+        if (isCorrect) {
+          explanationBox.classList.add('bg-emerald-100');
+          explanationIcon.textContent = '★';
+          explanationIcon.className = 'font-pixel text-sm text-jade8-700 shrink-0 mt-0.5';
+          explanationHeading.textContent = 'SEIKAI! (CORRECT) — PDF RULE BREAKDOWN:';
+          explanationHeading.className = 'font-pixel text-[10px] sm:text-xs text-jade8-700 leading-relaxed mb-2';
+        } else {
+          explanationBox.classList.add('bg-rose-100');
+          explanationIcon.textContent = '☠';
+          explanationIcon.className = 'font-pixel text-sm text-crimson8-700 shrink-0 mt-0.5';
+          explanationHeading.textContent = `ZANNEN! TRUE ANSWER: ${letters[item.preparedAnswer]}. ${item.preparedOptions[item.preparedAnswer]}`;
+          explanationHeading.className = 'font-pixel text-[10px] sm:text-xs text-crimson8-700 leading-relaxed mb-2';
+        }
+        explanationText.textContent = item.explanation;
+      }
+
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === total - 1;
+      updatePaletteHighlight();
+    }
+
+    function handleSelectOption(optIdx) {
+      const item = session.items[session.currentIndex];
+      if (config.mode === 'STUDY' && session.userAnswers[item.id] !== undefined) {
+        return;
+      }
+
+      session.userAnswers[item.id] = optIdx;
+      const isCorrect = optIdx === item.preparedAnswer;
+
+      if (isCorrect) {
+        missedIds.delete(item.id);
+        session.streak++;
+        if (config.mode === 'STUDY') {
+          playSfx('correct');
+          questionCardBox.classList.remove('animate-heal');
+          void questionCardBox.offsetWidth;
+          questionCardBox.classList.add('animate-heal');
+        } else {
+          playSfx('blip');
+        }
+      } else {
+        missedIds.add(item.id);
+        session.streak = 0;
+        if (config.mode === 'STUDY') {
+          playSfx('wrong');
+          questionCardBox.classList.remove('animate-damage');
+          void questionCardBox.offsetWidth;
+          questionCardBox.classList.add('animate-damage');
+        } else {
+          playSfx('blip');
+        }
+      }
+
+      savePersistentSets();
+      renderQuestion();
+      renderPalette();
+      updateScoreHeader();
+    }
+
+    function updateScoreHeader() {
+      let answered = 0;
+      let correct = 0;
+
+      session.items.forEach(item => {
+        const ans = session.userAnswers[item.id];
+        if (ans !== undefined) {
+          answered++;
+          if (ans === item.preparedAnswer) correct++;
+        }
+      });
+
+      headerAnsweredVal.textContent = `${answered}/${session.items.length}`;
+      if (config.mode === 'STUDY') {
+        headerScoreVal.textContent = correct;
+        streakVal.textContent = `${session.streak}x`;
+      } else {
+        headerScoreVal.textContent = '???';
+        streakVal.textContent = 'EXAM';
+      }
+      paletteAnsweredCount.textContent = `${answered}/${session.items.length}`;
+      paletteFlaggedCount.textContent = session.items.filter(i => bookmarkedIds.has(i.id)).length;
+    }
+
+    bookmarkBtn.addEventListener('click', () => {
+      playSfx('blip');
+      const item = session.items[session.currentIndex];
+      if (bookmarkedIds.has(item.id)) {
+        bookmarkedIds.delete(item.id);
+      } else {
+        bookmarkedIds.add(item.id);
+      }
+      savePersistentSets();
+      renderQuestion();
+      renderPalette();
+      updateScoreHeader();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (session.currentIndex > 0) {
+        playSfx('blip');
+        session.currentIndex--;
+        renderQuestion();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (session.currentIndex < session.items.length - 1) {
+        playSfx('blip');
+        session.currentIndex++;
+        renderQuestion();
+      }
+    });
+
+    // =========================================================================
+    // STAGE MAP PALETTE
+    // =========================================================================
+    function renderPalette() {
+      paletteGrid.innerHTML = '';
+
+      session.items.forEach((item, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = idx + 1;
+
+        const ans = session.userAnswers[item.id];
+        const hasAnswered = ans !== undefined;
+        const isCurrent = idx === session.currentIndex;
+        const isFlagged = bookmarkedIds.has(item.id);
+
+        let classes = 'h-9 font-pixel text-[9px] border-2 border-black transition flex items-center justify-center cursor-pointer ';
+
+        if (isCurrent) {
+          classes += 'bg-gold8-400 text-indigo8-950 shadow-[2px_2px_0_#000] ';
+        } else if (hasAnswered) {
+          if (config.mode === 'STUDY') {
+            classes += ans === item.preparedAnswer
+              ? 'bg-jade8-500 text-indigo8-950 '
+              : 'bg-crimson8-500 text-white ';
+          } else {
+            classes += 'bg-jade8-500 text-indigo8-950 ';
+          }
+        } else {
+          classes += 'bg-washi-50 text-indigo8-950 hover:bg-sakura-100 ';
+        }
+
+        if (isFlagged && !isCurrent) {
+          classes += 'ring-2 ring-sakura-500 ';
+        }
+
+        btn.className = classes;
+        btn.addEventListener('click', () => {
+          playSfx('blip');
+          session.currentIndex = idx;
+          renderQuestion();
+          if (window.innerWidth < 1024) {
+            paletteSidebar.classList.add('hidden');
+            paletteSidebar.classList.remove('fixed', 'inset-x-3', 'bottom-3', 'z-40');
+          }
+        });
+
+        paletteGrid.appendChild(btn);
+      });
+    }
+
+    function updatePaletteHighlight() {
+      renderPalette();
+    }
+
+    document.getElementById('togglePaletteBtn').addEventListener('click', () => {
+      playSfx('blip');
+      const isHidden = paletteSidebar.classList.contains('hidden');
+      if (isHidden) {
+        paletteSidebar.classList.remove('hidden');
+        paletteSidebar.classList.add('fixed', 'inset-x-3', 'bottom-3', 'z-40');
+      } else {
+        paletteSidebar.classList.add('hidden');
+        paletteSidebar.classList.remove('fixed', 'inset-x-3', 'bottom-3', 'z-40');
+      }
+    });
+
+    document.getElementById('closePaletteMobileBtn').addEventListener('click', () => {
+      playSfx('blip');
+      paletteSidebar.classList.add('hidden');
+      paletteSidebar.classList.remove('fixed', 'inset-x-3', 'bottom-3', 'z-40');
+    });
+
+    // =========================================================================
+    // SUBMISSION & STAGE CLEAR VICTORY SCREEN
+    // =========================================================================
+    finishExamBtn.addEventListener('click', () => {
+      playSfx('blip');
+      const answeredCount = Object.keys(session.userAnswers).length;
+      const unanswered = session.items.length - answeredCount;
+
+      modalTitle.textContent = 'FINISH THIS QUEST?';
+      modalBody.textContent = unanswered > 0
+        ? `You completed ${answeredCount} of ${session.items.length} stages (${unanswered} skipped). Unanswered items count as missed. View final report?`
+        : `All ${session.items.length} stages answered! Proceed to your Applied Exam Victory Report?`;
+
+      confirmModal.classList.remove('hidden');
+    });
+
+    modalCancelBtn.addEventListener('click', () => {
+      playSfx('blip');
+      confirmModal.classList.add('hidden');
+    });
+
+    modalConfirmBtn.addEventListener('click', () => {
+      confirmModal.classList.add('hidden');
+      finalizeAndShowResults();
+    });
+
+    function finalizeAndShowResults() {
+      stopTimer();
+      playSfx('victory');
+      session.isSubmitted = true;
+
+      let totalCorrect = 0;
+      const statsByCategory = {
+        CAT1: { label: '1. TRANSLATION OF TIME & DATES', correct: 0, total: 0 },
+        CAT2: { label: '2. COMPLETION OF SENTENCES', correct: 0, total: 0 },
+        CAT3: { label: '3. RESPONDING TO QUESTIONS', correct: 0, total: 0 }
+      };
+
+      session.items.forEach(item => {
+        const chosen = session.userAnswers[item.id];
+        const isCorrect = chosen !== undefined && chosen === item.preparedAnswer;
+
+        if (statsByCategory[item.catCode]) {
+          statsByCategory[item.catCode].total++;
+          if (isCorrect) statsByCategory[item.catCode].correct++;
+        }
+
+        if (isCorrect) {
+          totalCorrect++;
+          missedIds.delete(item.id);
+        } else {
+          missedIds.add(item.id);
+        }
+      });
+
+      savePersistentSets();
+
+      const totalItems = session.items.length;
+      const pct = totalItems > 0 ? Math.round((totalCorrect / totalItems) * 100) : 0;
+
+      document.getElementById('finalScoreFraction').textContent = `${totalCorrect}/${totalItems}`;
+      document.getElementById('finalPercentage').textContent = `${pct}%`;
+
+      let rankTitle = 'D-RANK KOHAI';
+      if (pct >= 95) rankTitle = 'S-RANK SENSEI!';
+      else if (pct >= 85) rankTitle = 'A-RANK SENPAI';
+      else if (pct >= 75) rankTitle = 'B-RANK GAKUSEI';
+      else if (pct >= 60) rankTitle = 'C-RANK SHOSHINSHA';
+      document.getElementById('finalRemark').textContent = rankTitle;
+
+      const breakdownGrid = document.getElementById('topicBreakdownGrid');
+      breakdownGrid.innerHTML = '';
+
+      Object.keys(statsByCategory).forEach(cKey => {
+        const data = statsByCategory[cKey];
+        if (data.total === 0) return;
+        const cPct = Math.round((data.correct / data.total) * 100);
+
+        const card = document.createElement('div');
+        card.className = 'pixel-panel-inner p-4';
+        card.innerHTML = `
+          <div class="font-pixel text-[9px] text-indigo8-950 mb-2 leading-relaxed">${data.label}</div>
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="font-pixel text-sm text-indigo8-950">${data.correct}/${data.total}</span>
+            <span class="font-pixel text-[9px] px-2 py-0.5 border border-black ${cPct >= 75 ? 'bg-jade8-500 text-indigo8-950' : 'bg-gold8-500 text-indigo8-950'}">${cPct}%</span>
+          </div>
+          <div class="w-full h-4 bg-indigo8-950 border-2 border-black p-0.5">
+            <div class="h-full ${cPct >= 75 ? 'bg-jade8-500' : 'bg-sakura-400'}" style="width: ${cPct}%"></div>
+          </div>
+        `;
+        breakdownGrid.appendChild(card);
+      });
+
+      renderReviewList('ALL');
+      showView('RESULTS');
+    }
+
+    function renderReviewList(filterMode) {
+      const container = document.getElementById('reviewListContainer');
+      container.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      session.items.forEach((item, idx) => {
+        const chosen = session.userAnswers[item.id];
+        const isCorrect = chosen !== undefined && chosen === item.preparedAnswer;
+
+        if (filterMode === 'INCORRECT' && isCorrect) return;
+        if (filterMode === 'CORRECT' && !isCorrect) return;
+
+        const card = document.createElement('div');
+        card.className = `pixel-box p-5 border-l-8 ${isCorrect ? '!border-l-jade8-500' : '!border-l-crimson8-500'}`;
+
+        const userChoiceText = chosen !== undefined
+          ? `${letters[chosen]}. ${item.preparedOptions[chosen]}`
+          : 'NO COMMAND SELECTED (SKIPPED)';
+        const correctChoiceText = `${letters[item.preparedAnswer]}. ${item.preparedOptions[item.preparedAnswer]}`;
+
+        card.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2 py-1 font-pixel text-[9px] border-2 border-black ${isCorrect ? 'bg-jade8-500 text-indigo8-950' : 'bg-crimson8-500 text-white'}">
+                ${isCorrect ? 'CLEARED' : 'MISSED'}
+              </span>
+              <span class="font-vt text-lg font-bold text-washi-800">${item.catLabel} • ${item.subTag}</span>
+            </div>
+            <span class="font-pixel text-[9px] text-washi-800">STAGE ${idx + 1} (#${item.id})</span>
+          </div>
+          <h4 class="font-vt text-2xl text-indigo8-950 leading-snug mb-3 whitespace-pre-line">${item.q}</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div class="p-3 border-2 border-indigo8-950 ${isCorrect ? 'bg-emerald-100' : 'bg-rose-100'}">
+              <span class="font-pixel text-[8px] block mb-1 text-indigo8-950">YOUR ANSWER:</span>
+              <span class="font-vt text-xl text-indigo8-950">${userChoiceText}</span>
+            </div>
+            <div class="p-3 border-2 border-indigo8-950 bg-emerald-100">
+              <span class="font-pixel text-[8px] block mb-1 text-indigo8-950">OFFICIAL ANSWER:</span>
+              <span class="font-vt text-xl text-indigo8-950">${correctChoiceText}</span>
+            </div>
+          </div>
+          <div class="pixel-panel-inner p-3 font-vt text-xl text-indigo8-950 leading-snug">
+            <strong class="font-pixel text-[9px] text-indigo8-950">SENSEI RULE:</strong> ${item.explanation}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (container.innerHTML === '') {
+        container.innerHTML = `<div class="pixel-box p-8 text-center font-pixel text-xs text-indigo8-950">NO STAGES MATCH THIS FILTER.</div>`;
+      }
+    }
+
+    document.querySelectorAll('.rev-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        playSfx('blip');
+        document.querySelectorAll('.rev-filter-btn').forEach(b => {
+          b.classList.remove('bg-gold8-400');
+          b.classList.add('bg-washi-100');
+        });
+        btn.classList.remove('bg-washi-100');
+        btn.classList.add('bg-gold8-400');
+        renderReviewList(btn.dataset.revfilter);
+      });
+    });
+
+    document.getElementById('retryAllBtn').addEventListener('click', () => {
+      startNewSession();
+    });
+
+    document.getElementById('practiceMissedNowBtn').addEventListener('click', () => {
+      if (missedIds.size === 0) {
+        playSfx('correct');
+        setupAlert.textContent = "ZERO MISSED BOSSES! Every single Nihongo applied stage was cleared!";
+        setupAlert.classList.remove('hidden');
+        showView('SETUP');
+        return;
+      }
+      config.scope = 'MISSED';
+      config.mode = 'STUDY';
+      startNewSession();
+    });
+
+    document.getElementById('backToLobbyBtn').addEventListener('click', () => {
+      playSfx('blip');
+      showView('SETUP');
+    });
+
+    // =========================================================================
+    // KEYBOARD ARCADE CONTROLS
+    // =========================================================================
+    document.addEventListener('keydown', (e) => {
+      if (quizView.classList.contains('hidden') || !confirmModal.classList.contains('hidden')) return;
+      const key = e.key.toUpperCase();
+      if (['1', 'A'].includes(key)) handleSelectOption(0);
+      else if (['2', 'B'].includes(key)) handleSelectOption(1);
+      else if (['3', 'C'].includes(key)) handleSelectOption(2);
+      else if (['4', 'D'].includes(key)) handleSelectOption(3);
+      else if (e.key === 'ArrowLeft' && session.currentIndex > 0) {
+        playSfx('blip');
+        session.currentIndex--;
+        renderQuestion();
+      } else if (e.key === 'ArrowRight' && session.currentIndex < session.items.length - 1) {
+        playSfx('blip');
+        session.currentIndex++;
+        renderQuestion();
+      }
+    });
+
+    updateSavedCountsUI();
+  </script>
+</body>
+</html>
