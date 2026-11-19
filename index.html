@@ -522,9 +522,6 @@
                 <span id="qTopicTag" class="px-2.5 py-1 bg-indigo8-900 text-gold8-400 font-pixel text-[9px] border-2 border-black">
                   CATEGORY 1
                 </span>
-                <span id="qCategoryTag" class="px-2.5 py-1 bg-sakura-200 text-indigo8-950 font-vt text-lg font-bold border-2 border-sakura-400 leading-none">
-                  Time &amp; Dates
-                </span>
                 <span id="qOrigIdTag" class="font-pixel text-[9px] text-washi-800">
                   #001
                 </span>
@@ -2906,7 +2903,6 @@
 
     const questionCardBox = document.getElementById('questionCardBox');
     const qTopicTag = document.getElementById('qTopicTag');
-    const qCategoryTag = document.getElementById('qCategoryTag');
     const qOrigIdTag = document.getElementById('qOrigIdTag');
     const bookmarkBtn = document.getElementById('bookmarkBtn');
     const bookmarkStarIcon = document.getElementById('bookmarkStarIcon');
@@ -3149,7 +3145,6 @@
       progressBarFill.style.width = `${Math.round(((idx + 1) / total) * 100)}%`;
 
       qTopicTag.textContent = item.catLabel;
-      qCategoryTag.textContent = item.subTag;
       qOrigIdTag.textContent = `#${String(item.id).padStart(3, '0')}`;
 
       const isBookmarked = bookmarkedIds.has(item.id);
